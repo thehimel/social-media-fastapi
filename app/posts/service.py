@@ -1,4 +1,4 @@
-from uuid import uuid4 as uuid
+from uuid import uuid4 as uuid, UUID
 
 from app.posts.schemas import PostCreate, PostResponse
 
@@ -12,6 +12,10 @@ posts: list[PostResponse] = [
 
 def get_posts() -> list[PostResponse]:
     return posts
+
+
+def get_post(post_id: UUID) -> PostResponse | None:
+    return next((p for p in posts if p.id == post_id), None)
 
 
 def create_post(payload: PostCreate) -> PostResponse:
