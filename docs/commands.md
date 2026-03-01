@@ -4,7 +4,6 @@
 
 ```shell
 uvicorn main:app --reload
-
 ```
 
 ## Install Dependencies
