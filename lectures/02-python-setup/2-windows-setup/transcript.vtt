@@ -1,0 +1,277 @@
+WEBVTT
+
+1
+00:00:00.400 --> 00:00:04.880
+In this video, I'm going to walk you through setting up Python as well as VS Code on a
+
+2
+00:00:04.880 --> 00:00:09.040
+Windows machine. So the first thing that we're going to do is within your web browser, just
+
+3
+00:00:09.040 --> 00:00:13.440
+search for Python. And then we're going to select the first result. So this is going to take us to
+
+4
+00:00:13.440 --> 00:00:18.719
+the main Python page, we want to go to the download section. And so here Python, the website
+
+5
+00:00:18.719 --> 00:00:22.240
+is going to offer you up whatever the latest version of Python is, in this case, it happens
+
+6
+00:00:22.240 --> 00:00:26.320
+to be 3.9.6. Keep in mind, if you're watching this video in the future, it's going
+
+7
+00:00:26.320 --> 00:00:30.160
+to show some other version, that's okay, go ahead and just download the latest version.
+
+8
+00:00:30.160 --> 00:00:34.240
+As long as it's later than 3.7, you should be okay. So I'm going to just hit
+
+9
+00:00:34.240 --> 00:00:38.880
+download Python 3.9.6. I'm going to download that once it's finished downloading,
+
+10
+00:00:38.880 --> 00:00:43.360
+I'm going to select that and it's going to open up the installer. Now with this installer open,
+
+11
+00:00:43.360 --> 00:00:48.959
+it's very important that you select add Python 3.9 to PATH. Do not forget to do this
+
+12
+00:00:48.959 --> 00:00:52.880
+or then you're going to run into some issues. So make sure that's selected and then hit install.
+
+13
+00:00:52.880 --> 00:00:56.720
+Now, if you go through the installation process, and you realize you forgot to do this,
+
+14
+00:00:56.720 --> 00:01:00.799
+technically, there's a way to fix it afterwards. But instead of me explaining how to do that, the best
+
+15
+00:01:00.799 --> 00:01:06.239
+thing to do is just uninstall Python and reinstall it. So we'll hit install. Now, you'll get a pop
+
+16
+00:01:06.239 --> 00:01:10.800
+up, just go ahead and hit yes. Alright, and once you see this message where it says setup was
+
+17
+00:01:10.800 --> 00:01:14.879
+successful, that means Python was installed. And the next thing that we want to do is just quickly
+
+18
+00:01:14.879 --> 00:01:18.559
+verify that Python's up and running and working. So what we're gonna do is we're just going to
+
+19
+00:01:18.559 --> 00:01:23.599
+search for CMD. So it's going to open up our command prompt or terminal. And then in here,
+
+20
+00:01:23.599 --> 00:01:32.720
+just type in Python, dash three, dash dash version. Sorry, we should actually type in Python
+
+21
+00:01:32.720 --> 00:01:38.800
+py dash three, dash dash version. Alright, and so when you type this command in, it's going to tell
+
+22
+00:01:38.800 --> 00:01:42.320
+us the specific version that we installed. So we can see that I successfully installed Python
+
+23
+00:01:42.320 --> 00:01:47.199
+three dot nine dot six, if you get any kind of error, or any message saying that this command
+
+24
+00:01:47.199 --> 00:01:51.599
+is not available, that means that Python wasn't installed successfully. So just go ahead and redo
+
+25
+00:01:51.599 --> 00:01:55.919
+that process just in case. Now, the next thing that we want to do is install VS Code. So let's
+
+26
+00:01:55.919 --> 00:02:01.839
+open up a new tab, just search for VS Code. And then we'll select this is going to take us to
+
+27
+00:02:01.839 --> 00:02:06.000
+this page. And you'll see that VS Code will automatically detect what version you're running.
+
+28
+00:02:06.000 --> 00:02:12.880
+So you can just like download for Windows. And then once it's finished downloading,
+
+29
+00:02:12.880 --> 00:02:20.399
+go ahead and open it up. Hit the accept agreement, hit next, next, next. And then
+
+30
+00:02:20.399 --> 00:02:25.520
+you can leave everything as default. And then go ahead and run the installer. All right,
+
+31
+00:02:25.520 --> 00:02:28.960
+and then go ahead and finish, it's going to automatically open up VS Code.
+
+32
+00:02:32.160 --> 00:02:37.440
+Now there's a couple of things I want to do. So VS Code at its core is just a basic text editor.
+
+33
+00:02:37.440 --> 00:02:42.160
+However, we can install extensions that give it extra functionality, extra features that
+
+34
+00:02:42.160 --> 00:02:47.679
+will make it operate a little bit more like a full-blown IDE. So go ahead and select this icon
+
+35
+00:02:47.679 --> 00:02:52.479
+right here. This is for extensions. And then what we want to do is we want to search for Python.
+
+36
+00:02:53.919 --> 00:02:57.520
+And we usually just want to select the first one, it'll have a star and it's gonna be the one made
+
+37
+00:02:57.520 --> 00:03:01.600
+by Microsoft, you'll see that there's other ones made by other users, but we want the main
+
+38
+00:03:01.600 --> 00:03:06.960
+Microsoft one, hit install. And so this extension is going to give us IntelliSense, linting, debugging
+
+39
+00:03:06.960 --> 00:03:10.800
+and a few other features that are going to make it a little bit easier to start working with Python
+
+40
+00:03:10.800 --> 00:03:16.000
+within VS Code. All right. And so now that it's done installing, we can just close this,
+
+41
+00:03:16.000 --> 00:03:21.520
+close this, and then select this one to get back to your main file browser.
+
+42
+00:03:21.520 --> 00:03:26.399
+And right now, we haven't opened up any folder. So what we want to do is we want to create a folder to store all
+
+43
+00:03:26.399 --> 00:03:32.160
+of our application code. So select open folder, and then figure out where you want to store your
+
+44
+00:03:32.160 --> 00:03:35.600
+application code. So I'm just gonna store this in my documents, you can store this wherever you want,
+
+45
+00:03:35.600 --> 00:03:40.080
+I'm gonna create a new file or a new folder, I'm just gonna call it FastAPI. But you can name your
+
+46
+00:03:40.080 --> 00:03:46.800
+project whatever you want. So just select folder. And so that's going to not only create not only
+
+47
+00:03:46.800 --> 00:03:50.559
+create the folder, but it's going to open it up within VS Code. If you get this error, just like
+
+48
+00:03:50.559 --> 00:03:55.839
+trust the author, and just like yes. And then we can close out this welcome menu. And so now what
+
+49
+00:03:55.839 --> 00:04:02.960
+we have is we've opened up whoops, we've opened up VS Code. And within VS Code, we've opened up our
+
+50
+00:04:02.960 --> 00:04:07.119
+project code. So right now, there's no code that's to be expected. But I want to I want to do is I
+
+51
+00:04:07.119 --> 00:04:11.440
+want to create a new file real quick just for testing purposes. So I'm just going to right
+
+52
+00:04:11.440 --> 00:04:18.079
+click hit new file, and I'm going to name it main.py. And so we want to name it .py,
+
+53
+00:04:18.079 --> 00:04:21.920
+because this is going to be a Python file. And before I hit enter, I want you to focus your eyes
+
+54
+00:04:21.920 --> 00:04:25.920
+right down here. And you'll notice something happens down there. So when I hit enter, you'll
+
+55
+00:04:25.920 --> 00:04:30.079
+see activating extension. So it's activating the Python extension. And what the Python extension
+
+56
+00:04:30.079 --> 00:04:34.559
+is going to do is it's automatically going to select the correct Python interpreter, or it may
+
+57
+00:04:34.559 --> 00:04:38.480
+not be correct depending on what happens on your machine. For me, it automatically detected
+
+58
+00:04:38.480 --> 00:04:42.959
+Python 3.9.6 was installed on the machine. So it selected that one for me.
+
+59
+00:04:42.959 --> 00:04:48.320
+Keep in mind, if you have multiple versions of Python installed, it may select the wrong interpreter. So what you
+
+60
+00:04:48.320 --> 00:04:52.079
+can do is if you ever want to change the interpreter or specify a specific interpreter,
+
+61
+00:04:52.079 --> 00:04:56.399
+go to view command palette. And what I want you to do is search for Python
+
+62
+00:04:57.679 --> 00:05:03.119
+interpreter, and then look for Python: Select Interpreter. So right now, it's going to highlight
+
+63
+00:05:03.119 --> 00:05:08.559
+where the current Python interpreter is, which one is selected, and what's the executable for it.
+
+64
+00:05:08.559 --> 00:05:12.320
+But if you want to change that you can select enter interpreter path and then provide the path
+
+65
+00:05:12.320 --> 00:05:16.239
+to the specific version that you want. So you can always change it. But usually it's able to
+
+66
+00:05:16.239 --> 00:05:20.559
+detect the latest version. So you should be good to go. And so that's all I wanted to do from a
+
+67
+00:05:20.559 --> 00:05:25.519
+setup perspective. There's one more thing that we'll cover later. But we'll get to that in the
+
+68
+00:05:25.519 --> 00:05:29.600
+next section. But right now we've got Python installed, and we've got VS Code set up. And
+
+69
+00:05:29.600 --> 00:05:32.799
+we've got our project directory set up so we should be good to go.

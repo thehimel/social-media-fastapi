@@ -1,0 +1,209 @@
+WEBVTT
+
+1
+00:00:00.400 --> 00:00:03.920
+In this video, I'm going to walk you through setting up a virtual environment on a Windows
+
+2
+00:00:03.920 --> 00:00:08.800
+machine. Now, if you already closed out your VS Code window, go ahead and open up a new one and
+
+3
+00:00:08.800 --> 00:00:14.000
+make sure you open up the specific directory we created a couple of lessons ago. Now what we want to
+
+4
+00:00:14.000 --> 00:00:18.959
+do is we want to select a terminal, and we want to select new terminal. And this is an awesome feature
+
+5
+00:00:18.959 --> 00:00:24.480
+with VS Code, it allows us to have an integrated terminal within our VS Code window.
+
+6
+00:00:24.480 --> 00:00:28.959
+And this terminal is fundamentally no different than a regular terminal within Windows.
+
+7
+00:00:28.959 --> 00:00:33.040
+It's just built into VS Code so that we don't have to keep flipping between different windows. And if you
+
+8
+00:00:33.040 --> 00:00:37.439
+actually take a look at this right column, we can have multiple terminals open and we can even use
+
+9
+00:00:37.439 --> 00:00:41.919
+different terminals. So the default one on this machine happens to be PowerShell. But you can also
+
+10
+00:00:41.919 --> 00:00:45.040
+use Command Prompt if that's what you prefer. So if you select Command Prompt, it's going to create
+
+11
+00:00:45.040 --> 00:00:49.040
+a new terminal. And you can see that this is a traditional command prompt, I'm going to use this
+
+12
+00:00:49.040 --> 00:00:52.799
+one because that's the one I normally use. However, if you're more comfortable with PowerShell, feel
+
+13
+00:00:52.799 --> 00:00:58.639
+free to use that. Now the command to actually create a virtual environment within Windows
+
+14
+00:00:58.639 --> 00:01:06.480
+is python3 -m venv. So that stands for virtual environment. And then you want to give
+
+15
+00:01:06.480 --> 00:01:10.800
+it a name. So give whatever name you want for your virtual environment, you could name it after your
+
+16
+00:01:10.800 --> 00:01:17.760
+project name, or you could just do what I do, which is just call it venv. And what I like to do
+
+17
+00:01:17.760 --> 00:01:22.000
+is for all of my projects, I give it the same exact name. And that's perfectly okay, because
+
+18
+00:01:22.000 --> 00:01:27.599
+this virtual environment is going to be isolated to this project directory. And so even though
+
+19
+00:01:27.599 --> 00:01:31.919
+this project has a virtual environment named venv, I can create another virtual environment
+
+20
+00:01:31.919 --> 00:01:36.080
+in any other project with the same exact name, they're all going to be isolated to that specific
+
+21
+00:01:36.080 --> 00:01:41.519
+project folder. So go ahead and hit enter. And take a look over here, you'll see that a folder
+
+22
+00:01:41.519 --> 00:01:47.199
+was created called venv or VNV. And that's going to be the name of this folder is
+
+23
+00:01:47.199 --> 00:01:51.760
+always going to refer to whatever name you gave it. So if I named this cookies, this would open
+
+24
+00:01:51.760 --> 00:01:55.760
+up a new folder called cookies. And if you want you can take a look at what's in here. And if you
+
+25
+00:01:55.760 --> 00:02:00.320
+go under Scripts specifically, you'll notice that we've got our Python executable. So this is going
+
+26
+00:02:00.320 --> 00:02:06.480
+to act as our new interpreter. And so what we want to do is right now we are using our global
+
+27
+00:02:06.480 --> 00:02:11.039
+interpreter. And we want to change that we don't want to use the global one, we want to use the
+
+28
+00:02:11.039 --> 00:02:16.639
+specific one in our virtual environment. And that way we can install packages that are exclusive to
+
+29
+00:02:16.639 --> 00:02:21.600
+just this specific virtual environment. And so to do that, go ahead and select View once again.
+
+30
+00:02:21.679 --> 00:02:26.800
+And we want to go to command palette, and then search for Python, select interpreter,
+
+31
+00:02:28.000 --> 00:02:32.559
+as usual. And then you'll see the one we're currently using, but we want to pass in our
+
+32
+00:02:32.559 --> 00:02:37.600
+newest one. So select, enter interpreter path. And then we want to give it the path to our
+
+33
+00:02:37.600 --> 00:02:42.960
+interpreter, which is the path from the root of our project directory to this Python.exe file,
+
+34
+00:02:42.960 --> 00:02:47.919
+we're going to say dot, which is our current folder. So this is going to be the FastAPI folder.
+
+35
+00:02:48.000 --> 00:02:51.039
+And then within here, we want to go into scripts.
+
+36
+00:02:53.039 --> 00:02:58.559
+And then within scripts, well, sorry, we want to go into the virtual environment folder, then scripts.
+
+37
+00:03:00.080 --> 00:03:05.600
+And then python.exe, go ahead and hit enter. And then if you look down here, you'll see that
+
+38
+00:03:05.600 --> 00:03:11.039
+this gets updated. So now we're still using 3.9.6. But we're using our virtual environment.
+
+39
+00:03:12.080 --> 00:03:16.639
+And so that's all we need to do. And it should remember this every time we open up our project,
+
+40
+00:03:16.639 --> 00:03:20.240
+however, double check every time you open up just to make sure you're using that if it's
+
+41
+00:03:20.240 --> 00:03:26.240
+for some reason moved back to the default one, just do the same process. Now, the second thing
+
+42
+00:03:26.240 --> 00:03:29.600
+that we need to do is we need to make sure our terminal is also using the virtual environment.
+
+43
+00:03:30.479 --> 00:03:33.039
+And so what we want to do to do that is just type in
+
+44
+00:03:35.119 --> 00:03:40.160
+the path to this specific activate.bat file, this is going to activate that virtual
+
+45
+00:03:40.160 --> 00:03:46.479
+environment within our command line as well. So I'm going to say virtualenv.
+
+46
+00:03:48.320 --> 00:03:54.320
+And then we want to pass in our scripts folder, and then activate.bat,
+
+47
+00:03:56.559 --> 00:04:01.759
+hit enter. And then notice what's changed, right? So when you're using a virtual environment,
+
+48
+00:04:01.759 --> 00:04:04.720
+right, you're going to see the name of the virtual environment to the side of it.
+
+49
+00:04:04.720 --> 00:04:08.639
+So always double-check whenever you start up VS Code, and you start up your project
+
+50
+00:04:08.639 --> 00:04:12.720
+that this is enabled. If you don't see this, then just run the same exact command. And that's
+
+51
+00:04:12.720 --> 00:04:16.880
+going to reactivate the virtual environment. And so at this point, we are good to go with
+
+52
+00:04:16.880 --> 00:04:19.440
+our virtual environment and we can start coding out our project.

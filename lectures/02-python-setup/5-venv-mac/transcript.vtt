@@ -1,0 +1,321 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:03.360
+In this video, I'm going to walk you through setting up a virtual environment on a Mac
+
+2
+00:00:03.360 --> 00:00:04.360
+machine.
+
+3
+00:00:04.360 --> 00:00:08.200
+Now, if you've already closed out your VS Code window, go ahead and open it back up
+
+4
+00:00:08.200 --> 00:00:12.320
+and open up the folder that we created a couple of lessons ago.
+
+5
+00:00:12.320 --> 00:00:15.280
+Now within here, what we want to do is we want to access our terminal.
+
+6
+00:00:15.280 --> 00:00:18.959
+So we can access our terminal just by selecting this and then this is our terminal.
+
+7
+00:00:18.959 --> 00:00:23.120
+However, VS Code has a feature where we can access the terminal directly within our VS
+
+8
+00:00:23.120 --> 00:00:24.120
+Code window.
+
+9
+00:00:24.120 --> 00:00:27.959
+So if we select terminal and the new terminal, that's going to create a new terminal for
+
+10
+00:00:27.959 --> 00:00:28.959
+us.
+
+11
+00:00:28.959 --> 00:00:30.040
+All right.
+
+12
+00:00:30.040 --> 00:00:35.200
+And so this is fundamentally the same thing as this terminal right here.
+
+13
+00:00:35.200 --> 00:00:36.200
+It's no different.
+
+14
+00:00:36.200 --> 00:00:39.720
+But at least by having it built into VS Code, we don't have to keep flipping back and forth
+
+15
+00:00:39.720 --> 00:00:40.720
+between the two.
+
+16
+00:00:40.720 --> 00:00:42.880
+So you can use either one, whichever your preferences.
+
+17
+00:00:42.880 --> 00:00:46.840
+Keep in mind that when you open up the terminal within VS Code, it automatically moves you
+
+18
+00:00:46.840 --> 00:00:49.919
+to the directory folder of your project.
+
+19
+00:00:49.919 --> 00:00:52.400
+So you don't have to move there yourself.
+
+20
+00:00:52.400 --> 00:00:53.560
+You can use whichever one you want.
+
+21
+00:00:53.560 --> 00:00:58.160
+Now I'm actually using I'm running Mac on a virtual machine right now just because I
+
+22
+00:00:58.360 --> 00:00:59.360
+natively use a Windows machine.
+
+23
+00:00:59.360 --> 00:01:00.560
+So I don't actually own a Mac.
+
+24
+00:01:00.560 --> 00:01:02.240
+So this is a little bit buggy.
+
+25
+00:01:02.240 --> 00:01:04.599
+And if you see me type things, you can see it vanish.
+
+26
+00:01:04.599 --> 00:01:08.199
+So for demonstration purposes, I'm just going to use the regular terminal, but I strongly
+
+27
+00:01:08.199 --> 00:01:11.239
+recommend you use the one built into VS Code so you don't have to keep flipping back and
+
+28
+00:01:11.239 --> 00:01:13.680
+forth.
+
+29
+00:01:13.680 --> 00:01:18.360
+Now to actually create a virtual environment, there's one command that we have to run.
+
+30
+00:01:18.360 --> 00:01:26.919
+So you run Python 3, -m, venv for virtual environment, and then you have to
+
+31
+00:01:26.919 --> 00:01:27.919
+give it a name.
+
+32
+00:01:28.680 --> 00:01:30.839
+So what name do you want to give your virtual environment, you can technically give it any
+
+33
+00:01:30.839 --> 00:01:35.440
+name you want, you can name it after your project, you can give it some arbitrary name,
+
+34
+00:01:35.440 --> 00:01:41.040
+what I like to do is I like to name all of my virtual environments, V and V. And so for
+
+35
+00:01:41.040 --> 00:01:45.760
+every project that I create, I just create the same exact virtual environment name, V
+
+36
+00:01:45.760 --> 00:01:49.599
+and V. And that's not going to create an issue, it's perfectly okay to name all of your virtual
+
+37
+00:01:49.599 --> 00:01:53.279
+environments the same thing, because it's all going to be exclusive to this specific
+
+38
+00:01:53.279 --> 00:01:54.279
+project folder.
+
+39
+00:01:54.279 --> 00:01:58.000
+So no other projects can access it. So it's okay, if they all use the same name, it's
+
+40
+00:01:58.000 --> 00:02:03.120
+just easier. And so that way, you know, if I ever create a gitignore file, I can automatically
+
+41
+00:02:03.120 --> 00:02:07.639
+add venv. And I can make sure to just use the same exact gitignore template across
+
+42
+00:02:07.639 --> 00:02:12.119
+all of my Python projects. So I'm going to use venv. And I want to make sure that
+
+43
+00:02:12.119 --> 00:02:16.639
+you pay attention right here, because after I run this command, take a look at what happens.
+
+44
+00:02:16.639 --> 00:02:22.360
+It creates a folder called venv. And that's based off of the name of the virtual environment.
+
+45
+00:02:22.360 --> 00:02:25.720
+If we take a look at our virtual environment, you can see a couple of different files, you
+
+46
+00:02:25.720 --> 00:02:30.800
+can see the Python file as well. So if you go under bin, this is going to be the new
+
+47
+00:02:30.800 --> 00:02:35.279
+Python file or the Python 3 file that we're going to use for our interpreter. So
+
+48
+00:02:35.279 --> 00:02:40.039
+down here at the bottom, you'll see that we are still using the global interpreter, we
+
+49
+00:02:40.039 --> 00:02:43.839
+no longer want to use the global one, we want to use the one in our virtual environment.
+
+50
+00:02:43.839 --> 00:02:47.440
+That way, we don't, you know, cause any issues with other projects, we want to use the virtual
+
+51
+00:02:47.520 --> 00:02:55.919
+environment. So to do that, what we want to do is we want to select a view, command palette.
+
+52
+00:02:55.919 --> 00:03:00.479
+And then we want to do the Python select interpreter again. So we'll select that. Right. And so
+
+53
+00:03:00.479 --> 00:03:05.440
+right now, it shows us that we are using the global one. However, we're going to pass in
+
+54
+00:03:05.440 --> 00:03:10.000
+the path to our specific interpreter within our virtual environment. So we'll select enter
+
+55
+00:03:10.000 --> 00:03:16.479
+interpreter path, we'll say dot for current directory. And so that's going to mean the
+
+56
+00:03:16.479 --> 00:03:20.039
+current FastAPI directory, then within there, we want to go into the virtual environment
+
+57
+00:03:20.039 --> 00:03:27.839
+folder. And then within there, we want to go into bin and then just say Python. And
+
+58
+00:03:27.839 --> 00:03:33.279
+so we'll hit enter. And then take a look at what happens down here. Right, you notice
+
+59
+00:03:33.279 --> 00:03:37.520
+that the version still says 3.9.6, but our interpreter is actually pointing
+
+60
+00:03:37.520 --> 00:03:43.199
+to our local virtual environment now, because we changed the interpreter to use this specific
+
+61
+00:03:43.199 --> 00:03:48.160
+Python file right here. And so this is what's going to allow us to install our own specific
+
+62
+00:03:48.160 --> 00:03:51.960
+FastAPI version, as well as any other version of any package that we want. So it doesn't
+
+63
+00:03:51.960 --> 00:03:56.039
+actually install it globally on our machine. Now, we're almost done. But there's one other
+
+64
+00:03:56.039 --> 00:04:00.520
+thing to note, if you look at our terminal, our terminal isn't using our virtual environment.
+
+65
+00:04:00.520 --> 00:04:05.039
+So if I run pip install any package, it's not going to install it for a specific virtual
+
+66
+00:04:05.039 --> 00:04:08.559
+environment, it's going to install it globally. So we have to enable the virtual environment
+
+67
+00:04:08.559 --> 00:04:17.119
+for the command line as well. And to do that, all you have to do is type in source. And
+
+68
+00:04:17.119 --> 00:04:24.239
+then we want to pass in the path to this specific activate file right here within bin. So we
+
+69
+00:04:24.239 --> 00:04:34.000
+do venv, slash bin, slash activate, hit enter. And then notice how our command line changes.
+
+70
+00:04:34.000 --> 00:04:38.320
+Now it's prepended by the name of our virtual environment. So since we named it venv, you
+
+71
+00:04:38.320 --> 00:04:42.600
+can see that it shows it right before the terminal. And so that's all you have to do.
+
+72
+00:04:42.600 --> 00:04:48.000
+Our virtual environment is set up, keep in mind, if you close out your terminal, and
+
+73
+00:04:48.000 --> 00:04:52.160
+then reopen it, you'll notice that your virtual environment is gone. So you have to run that
+
+74
+00:04:52.160 --> 00:04:56.559
+same exact command every time you open up your terminal to ensure that you are in your
+
+75
+00:04:56.559 --> 00:05:01.239
+virtual environment. And anytime you close out VS Code, make sure that when you reopen
+
+76
+00:05:01.239 --> 00:05:05.279
+your project, it still points to the virtual environment. If for some reason it changes,
+
+77
+00:05:05.279 --> 00:05:09.320
+then just go back to that command palette, by going to View Command Palette, and then
+
+78
+00:05:09.320 --> 00:05:13.559
+selecting the interpreter that you specifically want. But that's all we have to do, guys.
+
+79
+00:05:13.559 --> 00:05:17.679
+So our virtual environment setup. And so at this point, we can go ahead and get started
+
+80
+00:05:17.679 --> 00:05:19.000
+on coding out our project.
