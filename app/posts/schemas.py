@@ -1,4 +1,5 @@
 from typing import Optional
+from uuid import UUID
 
 from pydantic import BaseModel
 
@@ -11,6 +12,7 @@ class PostCreate(BaseModel):
 
 
 class PostResponse(BaseModel):
+    id: UUID
     title: str
     content: str
     published: bool

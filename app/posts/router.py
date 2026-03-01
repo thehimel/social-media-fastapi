@@ -1,17 +1,18 @@
 from fastapi import APIRouter
 
 from app.posts.schemas import PostCreate, PostResponse
+from app.posts.service import get_posts as service_get_posts
+from app.posts.service import create_post as service_create_post
+
 
 router = APIRouter()
 
 
-@router.get("/", response_model=dict)
+@router.get("/", response_model=list[PostResponse])
 def get_posts():
-    return {"data": "This is your posts"}
+    return service_get_posts()
 
 
 @router.post("/", response_model=PostResponse)
 def create_post(payload: PostCreate):
-    return PostResponse(
-        title=payload.title, content=payload.content, published=payload.published, rating=payload.rating
-    )
+    return service_create_post(payload)
