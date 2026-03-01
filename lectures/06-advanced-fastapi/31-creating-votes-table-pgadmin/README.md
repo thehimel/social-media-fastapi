@@ -1,0 +1,1 @@
+# Creating Votes Table pgAdmin
