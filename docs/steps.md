@@ -30,3 +30,14 @@
 [Notes](https://notes.kodekloud.com/docs/Python-API-Development-with-FastAPI/FastAPI-Basics/Schema-Validation-Pydantic/page)
 [Video](https://learn.kodekloud.com/user/courses/python-api-development-with-fastapi/module/b1fa1425-07bf-49c6-b19d-ccded17d940d/lesson/daf8dc7f-a91c-42bf-a559-2ac631a5cd2d?autoplay=true)
 [Commit](https://github.com/thehimel/kodekloud-fastapi/commit/eab6588eebf01c6beaf28188871136c3b22baade)
+
+### Crud Basics Best Practices
+
+[Notes](https://notes.kodekloud.com/docs/Python-API-Development-with-FastAPI/FastAPI-Basics/Crud-Basics-Best-Practices/page)
+[Video](https://learn.kodekloud.com/user/courses/python-api-development-with-fastapi/module/b1fa1425-07bf-49c6-b19d-ccded17d940d/lesson/d79377c2-6981-42d1-a72d-426ea03104ac?autoplay=true)
+
+### Create Posts
+
+[Notes](https://notes.kodekloud.com/docs/Python-API-Development-with-FastAPI/FastAPI-Basics/Crud-Basics-Best-Practices/page)
+[Video](https://learn.kodekloud.com/user/courses/python-api-development-with-fastapi/module/b1fa1425-07bf-49c6-b19d-ccded17d940d/lesson/bd56f1cf-6508-4b3c-986f-8db7c8ab4369?autoplay=true)
+[Commit](https://github.com/thehimel/kodekloud-fastapi/commit/f7d874ddd023a907e2696f1b9d8a3b8529f6f3ba)
