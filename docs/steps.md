@@ -41,3 +41,14 @@
 [Notes](https://notes.kodekloud.com/docs/Python-API-Development-with-FastAPI/FastAPI-Basics/Crud-Basics-Best-Practices/page)
 [Video](https://learn.kodekloud.com/user/courses/python-api-development-with-fastapi/module/b1fa1425-07bf-49c6-b19d-ccded17d940d/lesson/bd56f1cf-6508-4b3c-986f-8db7c8ab4369?autoplay=true)
 [Commit](https://github.com/thehimel/kodekloud-fastapi/commit/f7d874ddd023a907e2696f1b9d8a3b8529f6f3ba)
+
+### Postman Saving Posts Collections
+
+[Notes](https://notes.kodekloud.com/docs/Python-API-Development-with-FastAPI/FastAPI-Basics/Crud-Basics-Best-Practices/page)
+[Video](https://learn.kodekloud.com/user/courses/python-api-development-with-fastapi/module/b1fa1425-07bf-49c6-b19d-ccded17d940d/lesson/338e2b52-7ff3-479b-b605-9ba586168985)
+
+### Get One Post By Id
+
+[Notes](https://notes.kodekloud.com/docs/Python-API-Development-with-FastAPI/FastAPI-Basics/Get-One-Post-By-Id/page)
+[Video](https://learn.kodekloud.com/user/courses/python-api-development-with-fastapi/module/b1fa1425-07bf-49c6-b19d-ccded17d940d/lesson/27110f26-4b81-4bf8-b40d-748d016a325f?autoplay=true)
+[Commit](https://github.com/thehimel/kodekloud-fastapi/commit/30a37ba9ec96be6b4c15b123da49ca34b72693cf)

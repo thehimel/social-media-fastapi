@@ -24,3 +24,19 @@ The port in the log is the **client port**, not the server port. The server list
 
 **Idempotent** — Performing the same operation multiple times has the same effect as doing it once. Example: calling `PUT /posts/1` with the same body ten times leaves the resource in the same state as calling it once. GET, PUT, PATCH, DELETE are typically idempotent; POST is not (each call usually creates a new resource).
 
+## Why use `next()` for finding the first match in a list?
+
+**`next(iterator, default)`** returns the first item from an iterator, or `default` if the iterator is empty. For "find first match or None":
+
+```python
+return next((p for p in posts if p.id == id), None)
+```
+
+- `(p for p in posts if p.id == id)` — generator that yields matching items
+- `next(..., None)` — first match, or `None` if no match (avoids `StopIteration` or `IndexError`)
+
+**Why not a loop?** Same result, but `next()` is concise and idiomatic. **Why not `filter()`?** `list(filter(...))[0]` raises `IndexError` when empty; `next(..., None)` returns `None` safely.
+
+## What is idiomatic?
+
+**Idiomatic** — Written in the natural, conventional way for that language. Code that uses the language's built-in features and common patterns, not patterns borrowed from other languages. Example: `for item in items:` is idiomatic Python; `for i in range(len(items)):` is not. When we say "idiomatic," we mean the standard, preferred way experienced developers write it.
