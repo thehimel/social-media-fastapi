@@ -1,0 +1,97 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:04.800
+Hi everyone, my name is Sanjeev Thiyagarajan, and I will be your instructor for this course.
+
+2
+00:00:04.800 --> 00:00:09.480
+In this course, I'm going to teach you how to build APIs in Python using a very popular
+
+3
+00:00:09.480 --> 00:00:16.200
+framework called FastAPI, which makes it incredibly easy to build highly performant APIs in Python.
+
+4
+00:00:16.200 --> 00:00:22.040
+Now, through this course, we're going to learn about common conventions when building APIs.
+
+5
+00:00:22.040 --> 00:00:26.879
+We'll dive into the ins and outs of FastAPI, as well as learn how to read and write data
+
+6
+00:00:26.879 --> 00:00:29.320
+to a PostgreSQL database.
+
+7
+00:00:29.320 --> 00:00:32.799
+We'll also cover how to implement authentication within our API.
+
+8
+00:00:32.799 --> 00:00:39.279
+So users can not only sign up, but also log in by utilizing JSON Web Tokens.
+
+9
+00:00:39.279 --> 00:00:43.400
+And in this course, we're not going to just cover building APIs, we're going to learn
+
+10
+00:00:43.400 --> 00:00:45.020
+a lot more than that.
+
+11
+00:00:45.020 --> 00:00:51.040
+We're also going to cover how to properly test our APIs using a tool called Pytest.
+
+12
+00:00:51.040 --> 00:00:54.040
+We'll also learn how to handle database migrations.
+
+13
+00:00:54.040 --> 00:00:58.000
+And we'll learn how to deploy your application to two different platforms.
+
+14
+00:00:58.000 --> 00:01:02.099
+That includes deploying to an Ubuntu server as well as Heroku.
+
+15
+00:01:02.099 --> 00:01:05.919
+On top of that, I'm going to show you guys how to dockerize your application so it can
+
+16
+00:01:05.919 --> 00:01:07.860
+run within a Docker container.
+
+17
+00:01:07.860 --> 00:01:12.379
+And we're going to build a CI/CD pipeline so that we can automate the testing and deployment
+
+18
+00:01:12.379 --> 00:01:13.800
+of our application.
+
+19
+00:01:13.800 --> 00:01:17.699
+So by the end of this course, you will have a solid understanding of how to build robust
+
+20
+00:01:17.699 --> 00:01:21.099
+APIs and how to properly test and deploy them.
+
+21
+00:01:21.099 --> 00:01:25.260
+So whether you're building a back end for a web app, or creating an API for a machine
+
+22
+00:01:25.260 --> 00:01:28.980
+learning model, you'll have all the tools you'll need to get up and running.
+
+23
+00:01:28.980 --> 00:01:30.459
+So we've got a lot to learn.
+
+24
+00:01:30.459 --> 00:01:33.220
+Let's get right to it and see what we'll be building in this course.
