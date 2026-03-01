@@ -7,3 +7,20 @@ The port in the log is the **client port**, not the server port. The server list
 ## What is Uvicorn and what does `uvicorn app.main:app --reload` do?
 
 **Uvicorn** is the server — the process that listens for HTTP requests and runs your app. FastAPI is a framework; it needs a server like Uvicorn to handle the actual HTTP traffic. Uvicorn implements the ASGI interface. The command `uvicorn app.main:app --reload` means: load the `app` object from the `app.main` module, and use `--reload` to restart on code changes (dev only).
+
+## What are `tags` in FastAPI?
+
+**Tags** group endpoints in the interactive docs (Swagger UI at `/docs`, ReDoc at `/redoc`). They organize related endpoints under a heading (e.g. "Posts") and make the API easier to browse. Tags are documentation-only — they don't affect routing or behavior. Set them on `include_router(tags=["Posts"])`, on each route `@router.get(..., tags=["Posts"])`, or on the `APIRouter(tags=["posts"])`.
+
+## What is the difference between PUT and PATCH?
+
+**PUT** — Full replacement. The client sends the entire resource. The server replaces the resource with the request body. Missing fields are typically cleared or set to defaults. Use for "replace this resource with this exact representation." Idempotent.
+
+**PATCH** — Partial update. The client sends only the fields to change. The server merges those fields into the existing resource. Unmentioned fields stay unchanged. Use for "update only these fields." Idempotent.
+
+**Summary:** PUT = replace whole resource; PATCH = update specific fields.
+
+## What is idempotent?
+
+**Idempotent** — Performing the same operation multiple times has the same effect as doing it once. Example: calling `PUT /posts/1` with the same body ten times leaves the resource in the same state as calling it once. GET, PUT, PATCH, DELETE are typically idempotent; POST is not (each call usually creates a new resource).
+

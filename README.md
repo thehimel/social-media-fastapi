@@ -11,3 +11,5 @@
 - [FastAPI Cheat Sheet - DevSheets](https://www.devsheets.io/sheets/fastapi)
 - [FastAPI Documentation](https://fastapi.tiangolo.com/)
 - [HTTP request methods](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Methods)
+- [Pydantic Documentation](https://docs.pydantic.dev/latest/)
+- [Python Type Hints](https://docs.python.org/3/library/typing.html)
