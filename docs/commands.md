@@ -3,7 +3,24 @@
 ## Management
 
 ```shell
-uvicorn main:app --reload
+uvicorn app.main:app --reload
+```
+
+## Ruff
+
+```shell
+# Lint
+ruff check .
+
+# Format
+ruff format .
+
+# Lint with auto-fix
+ruff check . --fix
+
+# Lint and format specific path
+ruff check app/
+ruff format app/
 ```
 
 ## Install Dependencies

@@ -4,6 +4,28 @@
 
 ### Initialize FastAPI Projects
 
-[Commit](https://github.com/thehimel/kodekloud-fastapi/commit/45c080afd7a59d58f64413a02f222851dff77cea)
 [Notes](https://notes.kodekloud.com/docs/Python-API-Development-with-FastAPI/FastAPI-Basics/Initialize-Fastapi-Projects/page)
 [Video](https://learn.kodekloud.com/user/courses/python-api-development-with-fastapi/module/b1fa1425-07bf-49c6-b19d-ccded17d940d/lesson/dd2bd926-02d8-45e5-939f-e32395e75f80)
+[Commit](https://github.com/thehimel/kodekloud-fastapi/commit/45c080afd7a59d58f64413a02f222851dff77cea)
+
+### Path Operations
+
+[Notes](https://notes.kodekloud.com/docs/Python-API-Development-with-FastAPI/FastAPI-Basics/Path-Operations/page)
+[Video](https://learn.kodekloud.com/user/courses/python-api-development-with-fastapi/module/b1fa1425-07bf-49c6-b19d-ccded17d940d/lesson/113eeddd-9161-408a-8f81-641b04783824?autoplay=true)
+[Commit](https://github.com/thehimel/kodekloud-fastapi/commit/2474df82e479dc3185e649e92024fff6bdf4e846)
+
+### Setting Up Postman
+
+[Notes](https://notes.kodekloud.com/docs/Python-API-Development-with-FastAPI/FastAPI-Basics/Setting-Up-Postman/page)
+[Video](https://learn.kodekloud.com/user/courses/python-api-development-with-fastapi/module/b1fa1425-07bf-49c6-b19d-ccded17d940d/lesson/b45b9bde-571a-4982-9bbe-e741db74c008)
+
+### Post Requests
+
+[Notes](https://notes.kodekloud.com/docs/Python-API-Development-with-FastAPI/FastAPI-Basics/Post-Requests/page)
+[Video](https://learn.kodekloud.com/user/courses/python-api-development-with-fastapi/module/b1fa1425-07bf-49c6-b19d-ccded17d940d/lesson/8a4b3163-e512-41f2-b037-c0c5176aee47)
+[Commit](https://github.com/thehimel/kodekloud-fastapi/commit/349068961932234ef4b525bd757d86656f0d4a2c)
+
+### Schema Validation Pydantic
+
+[Notes](https://notes.kodekloud.com/docs/Python-API-Development-with-FastAPI/FastAPI-Basics/Schema-Validation-Pydantic/page)
+[Video](https://learn.kodekloud.com/user/courses/python-api-development-with-fastapi/module/b1fa1425-07bf-49c6-b19d-ccded17d940d/lesson/daf8dc7f-a91c-42bf-a559-2ac631a5cd2d?autoplay=true)

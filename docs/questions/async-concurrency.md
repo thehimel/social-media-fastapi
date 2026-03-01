@@ -15,7 +15,7 @@
 
 **Process** — A running program with its own memory. Like a **factory**: separate building, own resources. Processes don't share memory; they're isolated.
 
-*FastAPI:* Running `uvicorn main:app` starts one process. Each Gunicorn worker is a separate process.
+*FastAPI:* Running `uvicorn app.main:app` starts one process. Each Gunicorn worker is a separate process.
 
 **Thread** — A unit of execution inside a process. Like a **worker in the factory**: multiple workers share the same space and resources. Same process, same memory.
 
