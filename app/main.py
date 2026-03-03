@@ -4,11 +4,12 @@ from sqlalchemy.exc import OperationalError
 from sqlalchemy.orm import Session
 
 from app.api.router import router as api_router
-from app.database import engine, get_db
-from app.posts import models
+from app.database import Base, engine, get_db
+from app.posts.models import Post  # noqa: F401 - register with metadata
+from app.users.models import User  # noqa: F401 - register with metadata
 
 # Automatically create tables on application startup.
-models.Base.metadata.create_all(bind=engine)
+Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
 
