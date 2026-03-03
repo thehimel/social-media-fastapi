@@ -31,6 +31,30 @@ docker compose exec postgres psql -U postgres -d kodekloud-fastapi -c "SELECT 1;
 docker compose logs postgres
 ```
 
+## Alembic
+
+Run from the project root. See [Alembic Setup](steps/config/alembic-setup.md) for full guide.
+
+| Alembic | Purpose | Django equivalent |
+|---------|---------|-------------------|
+| `alembic revision --autogenerate -m "message"` | Create migration from model changes | `python manage.py makemigrations` |
+| `alembic revision -m "message"` | Create manual migration (no autogenerate) | `python manage.py makemigrations` |
+| `alembic upgrade head` | Apply all pending migrations | `python manage.py migrate` |
+| `alembic upgrade <revision>` | Upgrade to a specific revision | `python manage.py migrate <app> <revision>` |
+| `alembic downgrade -1` | Roll back one revision | `python manage.py migrate <app> <prev_rev>` |
+| `alembic downgrade <revision>` | Roll back to a specific revision | `python manage.py migrate <app> <revision>` |
+| `alembic current` | Show current revision | `python manage.py showmigrations` |
+| `alembic heads` | Show latest (head) migration | `python manage.py showmigrations` |
+| `alembic history` | List migration history | `python manage.py showmigrations` |
+
+**Note:** `alembic downgrade -N` works for any negative N (e.g. `-2`, `-3`) to roll back multiple revisions. For branched migrations, prefer `alembic downgrade <revision>` with a specific revision ID.
+
+Verify applied migrations in PostgreSQL:
+
+```shell
+docker compose exec postgres psql -U postgres -d kodekloud-fastapi -c "SELECT * FROM public.alembic_version ORDER BY version_num ASC;"
+```
+
 ## Ruff
 
 ```shell
