@@ -28,3 +28,11 @@ def create_post(payload: PostCreate) -> PostResponse:
     )
     posts.append(post)
     return post
+
+
+def delete_post(post_id: UUID) -> bool:
+    post = get_post(post_id)
+    if post is None:
+        return False
+    posts.remove(post)
+    return True
