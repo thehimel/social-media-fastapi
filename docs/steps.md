@@ -69,3 +69,9 @@
 [Notes](https://notes.kodekloud.com/docs/Python-API-Development-with-FastAPI/FastAPI-Basics/Deleting-Posts/page)
 [Video](https://learn.kodekloud.com/user/courses/python-api-development-with-fastapi/module/b1fa1425-07bf-49c6-b19d-ccded17d940d/lesson/a93d2966-1c3b-4250-aa86-8b38d99c895b)
 [Commit](https://github.com/thehimel/kodekloud-fastapi/commit/ae0148af10a79cf64cb042bd594afb7f94c76b94)
+
+### Updating Posts
+
+[Notes](https://notes.kodekloud.com/docs/Python-API-Development-with-FastAPI/FastAPI-Basics/Updating-Posts/page)
+[Video](https://learn.kodekloud.com/user/courses/python-api-development-with-fastapi/module/b1fa1425-07bf-49c6-b19d-ccded17d940d/lesson/38959a73-5725-489c-bd35-756e585b06c5)
+[Commit](https://github.com/thehimel/kodekloud-fastapi/commit/a5e39cdf8d22b662424d388609a60b3a74294fd6)

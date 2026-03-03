@@ -1,0 +1,24 @@
+info:
+  name: update
+  type: http
+  seq: 5
+
+http:
+  method: PUT
+  url: "{{posts}}/14acf361-1ecf-44ee-91a6-38906b99c3e5"
+  body:
+    type: json
+    data: |-
+      {
+        "title": "top beaches in florida",
+        "content": "check out these awesome beaches",
+        "published": true,
+        "rating": 5
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
