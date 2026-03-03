@@ -30,6 +30,22 @@ def create_post(payload: PostCreate) -> PostResponse:
     return post
 
 
+def update_post(post_id: UUID, payload: PostCreate) -> PostResponse | None:
+    post = get_post(post_id)
+    if post is None:
+        return None
+    idx = posts.index(post)
+    updated = PostResponse(
+        id=post.id,
+        title=payload.title,
+        content=payload.content,
+        published=payload.published,
+        rating=payload.rating,
+    )
+    posts[idx] = updated
+    return updated
+
+
 def delete_post(post_id: UUID) -> bool:
     post = get_post(post_id)
     if post is None:

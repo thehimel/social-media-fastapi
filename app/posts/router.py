@@ -7,6 +7,7 @@ from app.posts.service import create_post as service_create_post
 from app.posts.service import delete_post as service_delete_post
 from app.posts.service import get_post as service_get_post
 from app.posts.service import get_posts as service_get_posts
+from app.posts.service import update_post as service_update_post
 
 router = APIRouter()
 
@@ -27,6 +28,14 @@ def get_post(post_id: UUID):
 @router.post("/", response_model=PostResponse, status_code=status.HTTP_201_CREATED)
 def create_post(payload: PostCreate):
     return service_create_post(payload)
+
+
+@router.put("/{post_id}", response_model=PostResponse)
+def update_post(post_id: UUID, payload: PostCreate):
+    post = service_update_post(post_id, payload)
+    if post is None:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"Post with id: {post_id} was not found")
+    return post
 
 
 @router.delete("/{post_id}", status_code=status.HTTP_204_NO_CONTENT)
