@@ -21,10 +21,10 @@ def root():
 
 
 @app.get("/health/db")
-def health_db(db: Session = Depends(get_db)):
+def health_db(db: Session = Depends(get_db)):  # Depends() injects a fresh session per request and closes it after.
     """Verify database connection for health checks."""
     try:
-        db.execute(text("SELECT 1"))
+        db.execute(text("SELECT 1"))  # Verify connection is alive for health checks.
     except OperationalError as e:
         raise HTTPException(status_code=503, detail="Database unavailable") from e
     return {"status": "success"}

@@ -1,5 +1,5 @@
+from datetime import datetime
 from typing import Optional
-from uuid import UUID
 
 from pydantic import BaseModel
 
@@ -12,8 +12,9 @@ class PostCreate(BaseModel):
 
 
 class PostResponse(BaseModel):
-    id: UUID
+    id: int
     title: str
     content: str
     published: bool
     rating: Optional[int]
+    created_at: datetime

@@ -1,54 +1,90 @@
-from uuid import uuid4 as uuid, UUID
+from sqlalchemy.orm import Session
 
+from app.posts.models import Post
 from app.posts.schemas import PostCreate, PostResponse
 
-posts: list[PostResponse] = [
-    PostResponse(id=uuid(), title="Post 1", content="Content 1", published=False, rating=5),
-    PostResponse(id=uuid(), title="Post 2", content="Content 2", published=True, rating=4),
-    PostResponse(id=uuid(), title="Post 3", content="Content 3", published=True, rating=3),
-    PostResponse(id=uuid(), title="Post 4", content="Content 4", published=False, rating=2),
-]
+
+def get_posts(db: Session) -> list[PostResponse]:
+    posts = db.query(Post).all()  # Fetch all posts from the database.
+    return [
+        PostResponse(
+            id=int(p.id),
+            title=str(p.title),
+            content=str(p.content),
+            published=bool(p.published),
+            rating=p.rating
+            if p.rating is None
+            else int(p.rating),  # int() satisfies type checker; SQLAlchemy reports InstrumentedAttribute.
+            created_at=p.created_at,
+        )
+        for p in posts
+    ]
 
 
-def get_posts() -> list[PostResponse]:
-    return posts
-
-
-def get_post(post_id: UUID) -> PostResponse | None:
-    return next((p for p in posts if p.id == post_id), None)
-
-
-def create_post(payload: PostCreate) -> PostResponse:
-    post = PostResponse(
-        id=uuid(),
-        title=payload.title,
-        content=payload.content,
-        published=payload.published,
-        rating=payload.rating,
-    )
-    posts.append(post)
-    return post
-
-
-def update_post(post_id: UUID, payload: PostCreate) -> PostResponse | None:
-    post = get_post(post_id)
+def get_post(db: Session, post_id: int) -> PostResponse | None:
+    post = db.get(Post, post_id)  # Fetch by primary key to return the post.
     if post is None:
         return None
-    idx = posts.index(post)
-    updated = PostResponse(
-        id=post.id,
+    return PostResponse(
+        id=int(post.id),
+        title=str(post.title),
+        content=str(post.content),
+        published=bool(post.published),
+        rating=post.rating
+        if post.rating is None
+        else int(post.rating),  # int() satisfies type checker; SQLAlchemy reports InstrumentedAttribute.
+        created_at=post.created_at,
+    )
+
+
+def create_post(db: Session, payload: PostCreate) -> PostResponse:
+    post = Post(
         title=payload.title,
         content=payload.content,
         published=payload.published,
         rating=payload.rating,
     )
-    posts[idx] = updated
-    return updated
+    db.add(post)  # Stage for insert so commit can persist it.
+    db.commit()  # Persist so the post is stored and visible.
+    db.refresh(post)  # Load id and created_at so we can return them.
+    return PostResponse(
+        id=int(post.id),
+        title=str(post.title),
+        content=str(post.content),
+        published=bool(post.published),
+        rating=post.rating
+        if post.rating is None
+        else int(post.rating),  # int() satisfies type checker; SQLAlchemy reports InstrumentedAttribute.
+        created_at=post.created_at,
+    )
 
 
-def delete_post(post_id: UUID) -> bool:
-    post = get_post(post_id)
+def update_post(db: Session, post_id: int, payload: PostCreate) -> PostResponse | None:
+    post = db.get(Post, post_id)  # Fetch by primary key to update.
+    if post is None:
+        return None
+    post.title = payload.title
+    post.content = payload.content
+    post.published = payload.published
+    post.rating = payload.rating
+    db.commit()  # Persist changes to the database.
+    db.refresh(post)  # Reload to ensure we return the latest state.
+    return PostResponse(
+        id=int(post.id),
+        title=str(post.title),
+        content=str(post.content),
+        published=bool(post.published),
+        rating=post.rating
+        if post.rating is None
+        else int(post.rating),  # int() satisfies type checker; SQLAlchemy reports InstrumentedAttribute.
+        created_at=post.created_at,
+    )
+
+
+def delete_post(db: Session, post_id: int) -> bool:
+    post = db.get(Post, post_id)  # Fetch by primary key to delete.
     if post is None:
         return False
-    posts.remove(post)
+    db.delete(post)  # Mark for deletion so commit removes it.
+    db.commit()  # Persist the deletion to the database.
     return True
