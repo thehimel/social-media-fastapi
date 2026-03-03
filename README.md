@@ -14,3 +14,5 @@
 - [HTTP response status codes](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status)
 - [Pydantic Documentation](https://docs.pydantic.dev/latest/)
 - [Python Type Hints](https://docs.python.org/3/library/typing.html)
+- [Swagger UI](https://swagger.io/tools/swagger-ui/)
+- [Redoc](https://github.com/Redocly/redoc)
