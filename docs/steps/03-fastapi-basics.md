@@ -79,7 +79,7 @@
 [Notes](https://notes.kodekloud.com/docs/Python-API-Development-with-FastAPI/FastAPI-Basics/Auto-Docs/page)
 [Video](https://learn.kodekloud.com/user/courses/python-api-development-with-fastapi/module/b1fa1425-07bf-49c6-b19d-ccded17d940d/lesson/c66aba83-bf8a-415b-86ab-5de77f1c73d3)
 
-## Adding Src Directory
+## Adding `app` Directory
 
 [Notes](https://notes.kodekloud.com/docs/Python-API-Development-with-FastAPI/FastAPI-Basics/Adding-Src-Directory/page)
 [Video](https://learn.kodekloud.com/user/courses/python-api-development-with-fastapi/module/b1fa1425-07bf-49c6-b19d-ccded17d940d/lesson/596cd5ff-911e-42b0-b1bf-4382941d04c1)
