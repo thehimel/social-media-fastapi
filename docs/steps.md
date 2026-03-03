@@ -52,3 +52,20 @@
 [Notes](https://notes.kodekloud.com/docs/Python-API-Development-with-FastAPI/FastAPI-Basics/Get-One-Post-By-Id/page)
 [Video](https://learn.kodekloud.com/user/courses/python-api-development-with-fastapi/module/b1fa1425-07bf-49c6-b19d-ccded17d940d/lesson/27110f26-4b81-4bf8-b40d-748d016a325f?autoplay=true)
 [Commit](https://github.com/thehimel/kodekloud-fastapi/commit/30a37ba9ec96be6b4c15b123da49ca34b72693cf)
+
+### Path Order Matters
+
+[Notes](https://notes.kodekloud.com/docs/Python-API-Development-with-FastAPI/FastAPI-Basics/Path-Order-Matters/page)
+[Video](https://learn.kodekloud.com/user/courses/python-api-development-with-fastapi/module/b1fa1425-07bf-49c6-b19d-ccded17d940d/lesson/f5656cd1-8318-4ad4-ae7c-ee728c91d141?autoplay=true)
+
+### Change Status Codes
+
+[Notes](https://notes.kodekloud.com/docs/Python-API-Development-with-FastAPI/FastAPI-Basics/Change-Status-Codes/page)
+[Video](https://learn.kodekloud.com/user/courses/python-api-development-with-fastapi/module/b1fa1425-07bf-49c6-b19d-ccded17d940d/lesson/6e56daeb-8acf-44bf-bb47-980057551f50)
+[Commit](https://github.com/thehimel/kodekloud-fastapi/commit/aa604a1dfc9cece196ae9dcd063b2dfac9f5c686)
+
+### Deleting Posts
+
+[Notes](https://notes.kodekloud.com/docs/Python-API-Development-with-FastAPI/FastAPI-Basics/Deleting-Posts/page)
+[Video](https://learn.kodekloud.com/user/courses/python-api-development-with-fastapi/module/b1fa1425-07bf-49c6-b19d-ccded17d940d/lesson/a93d2966-1c3b-4250-aa86-8b38d99c895b)
+[Commit](https://github.com/thehimel/kodekloud-fastapi/commit/ae0148af10a79cf64cb042bd594afb7f94c76b94)
