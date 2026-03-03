@@ -16,3 +16,5 @@
 - [Python Type Hints](https://docs.python.org/3/library/typing.html)
 - [Swagger UI](https://swagger.io/tools/swagger-ui/)
 - [Redoc](https://github.com/Redocly/redoc)
+- [SQLAlchemy Documentation](https://www.sqlalchemy.org/)
+- [Alembic Documentation](https://alembic.sqlalchemy.org/en/latest/)

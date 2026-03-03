@@ -63,30 +63,36 @@
 
 ## SQLAlchemy Created At Table
 
-- Notes
+- [Notes](https://notes.kodekloud.com/docs/Python-API-Development-with-FastAPI/Databases-with-Python/Sqlalchemy-Created-At-Table/page)
 - [Videos](https://learn.kodekloud.com/user/courses/python-api-development-with-fastapi/module/1c3ad280-5fee-4b8e-a891-42a61f9a2dd0/lesson/b05b7e69-75e9-4020-9af9-e4a267060ec6)
+- [Commit](https://github.com/thehimel/kodekloud-fastapi/commit/04b3c6e11236c6dc6649c1f3b0b002f64f72a07c)
 
 ## SQLAlchemy Get All Posts
 
-- Notes
+- [Notes](https://notes.kodekloud.com/docs/Python-API-Development-with-FastAPI/Databases-with-Python/Sqlalchemy-Get-All-Posts/page)
 - [Videos](https://learn.kodekloud.com/user/courses/python-api-development-with-fastapi/module/1c3ad280-5fee-4b8e-a891-42a61f9a2dd0/lesson/3e3c01f3-f30d-4e9e-88f3-3bd25cc02d3e)
+- [Commit: feat: migrate posts CRUD to SQLAlchemy ORM](https://github.com/thehimel/kodekloud-fastapi/commit/1c9ebe24b7833edfd1daedd3bae16c38d1f15fcf)
 
 ## Create Post SQLAlchemy
 
-- Notes
+- [Notes](https://notes.kodekloud.com/docs/Python-API-Development-with-FastAPI/Databases-with-Python/Create-Post-Sqlalchemy/page)
 - [Videos](https://learn.kodekloud.com/user/courses/python-api-development-with-fastapi/module/1c3ad280-5fee-4b8e-a891-42a61f9a2dd0/lesson/91918418-00a1-42c0-b429-b57e69f3f6b1)
+- [Commit: feat: migrate posts CRUD to SQLAlchemy ORM](https://github.com/thehimel/kodekloud-fastapi/commit/1c9ebe24b7833edfd1daedd3bae16c38d1f15fcf)
 
 ## Get Post by ID SQLAlchemy
 
-- Notes
+- [Notes](https://notes.kodekloud.com/docs/Python-API-Development-with-FastAPI/Databases-with-Python/Get-Post-By-Id-Sqlalchemy/page)
 - [Videos](https://learn.kodekloud.com/user/courses/python-api-development-with-fastapi/module/1c3ad280-5fee-4b8e-a891-42a61f9a2dd0/lesson/d50398e8-46ac-46fb-a747-0e6c4a73e271)
+- [Commit: feat: migrate posts CRUD to SQLAlchemy ORM](https://github.com/thehimel/kodekloud-fastapi/commit/1c9ebe24b7833edfd1daedd3bae16c38d1f15fcf)
 
 ## SQLAlchemy Delete Posts
 
-- Notes
+- [Notes](https://notes.kodekloud.com/docs/Python-API-Development-with-FastAPI/Databases-with-Python/Sqlalchemy-Delete-Posts/page)
 - [Videos](https://learn.kodekloud.com/user/courses/python-api-development-with-fastapi/module/1c3ad280-5fee-4b8e-a891-42a61f9a2dd0/lesson/10b146da-fe34-45c2-98ef-e2e441dbdaad)
+- [Commit: feat: migrate posts CRUD to SQLAlchemy ORM](https://github.com/thehimel/kodekloud-fastapi/commit/1c9ebe24b7833edfd1daedd3bae16c38d1f15fcf)
 
 ## SQLAlchemy Update Posts
 
-- Notes
+- [Notes](https://notes.kodekloud.com/docs/Python-API-Development-with-FastAPI/Databases-with-Python/Sqlalchemy-Update-Posts/page)
 - [Videos](https://learn.kodekloud.com/user/courses/python-api-development-with-fastapi/module/1c3ad280-5fee-4b8e-a891-42a61f9a2dd0/lesson/d40e0421-b3aa-455d-bf51-834692d08d10)
+- [Commit: feat: migrate posts CRUD to SQLAlchemy ORM](https://github.com/thehimel/kodekloud-fastapi/commit/1c9ebe24b7833edfd1daedd3bae16c38d1f15fcf)
