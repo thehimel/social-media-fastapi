@@ -1,6 +1,6 @@
 from uuid import UUID
 
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, HTTPException, status
 
 from app.posts.schemas import PostCreate, PostResponse
 from app.posts.service import create_post as service_create_post
@@ -19,10 +19,10 @@ def get_posts():
 def get_post(post_id: UUID):
     post = service_get_post(post_id)
     if post is None:
-        raise HTTPException(status_code=404, detail="Post not found")
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"Post with id: {post_id} was not found")
     return post
 
 
-@router.post("/", response_model=PostResponse)
+@router.post("/", response_model=PostResponse, status_code=status.HTTP_201_CREATED)
 def create_post(payload: PostCreate):
     return service_create_post(payload)
