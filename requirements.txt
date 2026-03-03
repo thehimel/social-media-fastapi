@@ -1,5 +1,6 @@
 fastapi[all]
 pre-commit
+pydantic-settings
 psycopg2-binary
 ruff
 sqlalchemy
