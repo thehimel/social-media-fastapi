@@ -1,5 +1,7 @@
 # Working with Databases
 
+> This chapter covers SQL fundamentals and is not directly related to FastAPI. You can skip it if you’re already familiar with SQL.
+
 ## Database Intro
 
 - [Notes](https://notes.kodekloud.com/docs/Python-API-Development-with-FastAPI/Working-with-Databases/Database-Intro/page)
