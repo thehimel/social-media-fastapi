@@ -15,8 +15,8 @@ from app.database import Base
 from app.config import settings
 
 # Import models so they register with Base.metadata and autogenerate can detect schema changes.
-from app.posts.models import Post  # noqa: F401
-from app.users.models import User  # noqa: F401
+from app.posts import models as posts_models  # noqa: F401
+from app.users import models as users_models  # noqa: F401
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.

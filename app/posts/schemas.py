@@ -1,20 +1,24 @@
 from datetime import datetime
 from typing import Optional
 
-from pydantic import BaseModel
+from pydantic import BaseModel, ConfigDict
 
 
-class PostCreate(BaseModel):
+class PostBase(BaseModel):
     title: str
     content: str
     published: bool = True
     rating: Optional[int] = None
 
 
-class PostResponse(BaseModel):
+class PostCreate(PostBase):
+    pass
+
+
+class Post(PostBase):
     id: int
-    title: str
-    content: str
-    published: bool
-    rating: Optional[int]
     created_at: datetime
+
+    # Allow Pydantic to read from ORM attributes (e.g. post.id, post.title) so we can return SQLAlchemy model
+    # instances directly from endpoints; without this, passing an ORM object raises ValidationError.
+    model_config = ConfigDict(from_attributes=True)
