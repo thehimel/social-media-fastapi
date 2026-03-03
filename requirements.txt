@@ -1,3 +1,4 @@
+alembic
 fastapi[all]
 pre-commit
 pydantic-settings
