@@ -1,3 +1,9 @@
+import sys
+from pathlib import Path
+
+# Add project root so we can import app modules (required for Base and models).
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+
 from logging.config import fileConfig
 
 from sqlalchemy import engine_from_config
@@ -5,20 +11,30 @@ from sqlalchemy import pool
 
 from alembic import context
 
+from app.database import Base
+from app.config import settings
+
+# Import models so they register with Base.metadata and autogenerate can detect schema changes.
+from app.posts.models import Post  # noqa: F401
+from app.users.models import User  # noqa: F401
+
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
 config = context.config
+# Override URL from .env so we avoid hardcoding credentials in alembic.ini.
+config.set_main_option(
+    "sqlalchemy.url",
+    f"postgresql+psycopg2://{settings.postgres_user}:{settings.postgres_password}"
+    f"@{settings.postgres_host}:{settings.postgres_port}/{settings.postgres_db}",
+)
 
 # Interpret the config file for Python logging.
 # This line sets up loggers basically.
 if config.config_file_name is not None:
     fileConfig(config.config_file_name)
 
-# add your model's MetaData object here
-# for 'autogenerate' support
-# from myapp import mymodel
-# target_metadata = mymodel.Base.metadata
-target_metadata = None
+# Required for autogenerate to compare models with DB and produce upgrade/downgrade scripts.
+target_metadata = Base.metadata
 
 # other values from the config, defined by the needs of env.py,
 # can be acquired:
