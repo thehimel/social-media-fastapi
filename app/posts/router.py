@@ -13,6 +13,9 @@ from app.posts.service import delete_post as service_delete_post
 from app.posts.service import get_post as service_get_post
 from app.posts.service import get_posts as service_get_posts
 from app.posts.service import update_post as service_update_post
+from app.votes.types import AddVoteResult, RemoveVoteResult
+from app.votes.service import add_vote as service_add_vote
+from app.votes.service import remove_vote as service_remove_vote
 
 router = APIRouter()
 
@@ -101,4 +104,33 @@ def delete_post(
             detail="Not authorized to perform requested action",
         )
     service_delete_post(db, post_id)
+    return Response(status_code=status.HTTP_204_NO_CONTENT)
+
+
+@router.post("/{post_id}/vote", status_code=status.HTTP_201_CREATED)
+def add_vote(
+    post_id: int,
+    db: Session = Depends(get_db),
+    current_user: user_models.User = Depends(get_current_user),
+):
+    result = service_add_vote(db, post_id, current_user.id)
+    if result is AddVoteResult.NOT_FOUND:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Post not found")
+    if result is AddVoteResult.CONFLICT:
+        raise HTTPException(
+            status_code=status.HTTP_409_CONFLICT,
+            detail=f"user {current_user.id} has already voted on post {post_id}",
+        )
+    return {"message": "successfully added vote"}
+
+
+@router.delete("/{post_id}/vote", status_code=status.HTTP_204_NO_CONTENT)
+def remove_vote(
+    post_id: int,
+    db: Session = Depends(get_db),
+    current_user: user_models.User = Depends(get_current_user),
+):
+    result = service_remove_vote(db, post_id, current_user.id)
+    if result is RemoveVoteResult.NOT_FOUND:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Vote does not exist")
     return Response(status_code=status.HTTP_204_NO_CONTENT)
