@@ -1,0 +1,517 @@
+WEBVTT
+
+1
+00:00:00.320 --> 00:00:05.040
+In the last video, we saw how we can gather information from two different tables by making
+
+2
+00:00:05.040 --> 00:00:09.520
+use of joins. And so we saw how to do that with raw SQL. And now we're going to see how we can
+
+3
+00:00:09.520 --> 00:00:16.719
+perform joins using SQLAlchemy. And if you go to your post router, we're going to go to the get
+
+4
+00:00:16.719 --> 00:00:23.040
+posts path operation. And so we're going to kind of just take this step by step and see how we can
+
+5
+00:00:23.040 --> 00:00:27.840
+slowly build out this query so that we can actually perform a join. And if you take a look at the
+
+6
+00:00:27.840 --> 00:00:34.160
+current query, what we can do is just ignore all of the filter stuff first. And so really,
+
+7
+00:00:34.160 --> 00:00:38.720
+the meat of this query is just db.query, and then you pass the model. And that's going to get
+
+8
+00:00:38.720 --> 00:00:42.480
+every single post that we have in this table. And then we perform all of these filters to kind of
+
+9
+00:00:42.480 --> 00:00:46.240
+drill down. So we're going to start off with the same thing. And I'm going to save this new query
+
+10
+00:00:46.240 --> 00:00:53.200
+as results. Or, or we could just say posts_votes, maybe I will just save it as
+
+11
+00:00:53.200 --> 00:00:58.400
+results. And so we're going to start off with the same exact query, we'll do a db.query, models,
+
+12
+00:00:59.200 --> 00:01:09.680
+.post. And we'll remove the .all actually remove the .all. And the reason I don't want to do
+
+13
+00:01:09.680 --> 00:01:13.440
+the .all is I don't actually want to query the table, I just want to actually see the raw SQL
+
+14
+00:01:13.440 --> 00:01:21.599
+that's generating. And now we can do a print results. I'm going to bring this up a bit.
+
+15
+00:01:21.599 --> 00:01:27.360
+And we're going to just send a query to the get all posts. And you can see the raw SQL that it
+
+16
+00:01:27.360 --> 00:01:30.959
+generated. So it's going to select and then basically select every column and then rename it
+
+17
+00:01:31.599 --> 00:01:35.440
+accordingly. And then it's just going to get that from the posts table. So it's getting every single
+
+18
+00:01:35.440 --> 00:01:40.559
+post, that's all. So everything is pretty straightforward at this point. And if we go
+
+19
+00:01:40.559 --> 00:01:49.680
+back to our PgAdmin, let's actually take a look. Let's take a look at what our SQL query
+
+20
+00:01:49.680 --> 00:01:53.839
+actually looks like. And so you can see here, there's a whole bunch of things going on.
+
+21
+00:01:53.839 --> 00:01:57.919
+But the next thing I want to do is I want to actually start to perform the join. So I want to join on
+
+22
+00:01:57.919 --> 00:02:02.720
+the votes table. So let's take a look at how we can do that. And to perform a join with SQLAlchemy,
+
+23
+00:02:02.720 --> 00:02:08.880
+I can just say join. And then we have to specify the table we want to join. So this is going to be
+
+24
+00:02:08.880 --> 00:02:15.600
+the models.vote. And then the second thing is what is going to be our the what is going to be
+
+25
+00:02:15.600 --> 00:02:20.559
+the column that we perform a join on. So in this case, you can see that we're performing a join on
+
+26
+00:02:20.559 --> 00:02:27.279
+post ID and votes.post_id. And we're going to do the same thing here, I'm going
+
+27
+00:02:27.279 --> 00:02:34.479
+to say models.vote.post_id equals equals, and then we'll say models.post
+
+28
+00:02:35.600 --> 00:02:39.759
+.id, whenever they're equal, we're going to join the table. Now the thing about this join is,
+
+29
+00:02:40.479 --> 00:02:47.440
+by default with SQLAlchemy, this is going to be a left inner join. And the word inner is going to
+
+30
+00:02:47.440 --> 00:02:51.039
+be a little bit new for you. And it's because there's two different types of left joins,
+
+31
+00:02:51.039 --> 00:02:56.000
+you've got left, inner, and you have left, outer. And I don't want to spend too much time kind of
+
+32
+00:02:56.000 --> 00:03:01.119
+diving into what's the difference, just know that if you ignore the keyword, it's going to by default
+
+33
+00:03:01.119 --> 00:03:07.039
+be an inner. So what we want is an outer join. However, SQLAlchemy by default, uses
+
+34
+00:03:07.279 --> 00:03:13.279
+inner joins. So to actually set this as an outer join, we have to pass one more thing,
+
+35
+00:03:13.279 --> 00:03:20.800
+which is going to be isouter equals true. So this is going to make this a left outer
+
+36
+00:03:20.800 --> 00:03:26.399
+join. So we've got our join at this point. And what I'm going to do now is save this again.
+
+37
+00:03:26.399 --> 00:03:31.520
+And let's take a look at our query, or send something. And now we'll take a look at a query,
+
+38
+00:03:31.520 --> 00:03:34.880
+we can see that, okay, we're going to select everything from our post table,
+
+39
+00:03:35.520 --> 00:03:41.919
+then we're going to perform a left outer join with votes on the table votes, whenever votes
+
+40
+00:03:41.919 --> 00:03:48.960
+post ID equals post ID. So we're almost there. The next thing that we have to do is we have to
+
+41
+00:03:48.960 --> 00:03:55.440
+group by post ID. And then we have to perform the count on votes.post_id.
+
+42
+00:03:57.279 --> 00:04:01.679
+And so if you can take a guess as to how to do group by we can just do dot group_by,
+
+43
+00:04:02.399 --> 00:04:05.600
+and then we specify the specific column. So we'll do models.post,
+
+44
+00:04:06.720 --> 00:04:14.960
+dot ID. And then we have to get the count. So we'll go here. And I'm going to say, well,
+
+45
+00:04:14.960 --> 00:04:20.959
+first of all, we have to import a function. So what you're going to do is from SQLAlchemy,
+
+46
+00:04:20.959 --> 00:04:24.799
+import func. And so this is going to give us access to functions like count.
+
+47
+00:04:25.279 --> 00:04:27.279
+I'm going to say func, dot count.
+
+48
+00:04:31.679 --> 00:04:37.279
+And then we'll say, models dot vote, dot post_id.
+
+49
+00:04:39.760 --> 00:04:44.959
+We'll save this. And I'm going to send this and let's take a look at the query once again.
+
+50
+00:04:45.519 --> 00:04:49.519
+And so we've got SELECT posts, all of the post columns, good, good, good, good.
+
+51
+00:04:50.480 --> 00:04:55.760
+And then we get to count, right, and it's going to perform the count. That's all right. However,
+
+52
+00:04:55.760 --> 00:05:01.040
+we're naming it as count one. I don't like that. I want to name this something that I will
+
+53
+00:05:01.040 --> 00:05:05.839
+understand. So maybe something like votes. So we have to figure out a way to rename this column.
+
+54
+00:05:05.839 --> 00:05:11.440
+And if you want to rename this column, you just say, dot label, and then the name that you want
+
+55
+00:05:11.440 --> 00:05:18.079
+to give that column. So we're going to call this votes. And so let's test this out one last time.
+
+56
+00:05:19.040 --> 00:05:24.799
+And now we can see that the column is called votes. So this is exactly what we want. This is
+
+57
+00:05:24.799 --> 00:05:29.519
+the exact query that we generated in PgAdmin manually, we're just doing it through SQLAlchemy.
+
+58
+00:05:31.040 --> 00:05:35.920
+And what we're going to do is, well, let's actually perform the query, we'll do .all
+
+59
+00:05:37.600 --> 00:05:41.519
+don't need the print anymore. And we're going to actually return results. And let's see what happens.
+
+60
+00:05:41.600 --> 00:05:52.320
+So now if I send a query, it's giving me a whole bunch of errors. And if we scroll to the top of
+
+61
+00:05:52.320 --> 00:05:58.480
+the errors, we can see that these are all Pydantic validations. And so it's saying that, hey,
+
+62
+00:05:58.480 --> 00:06:02.720
+there's no title, there's no content, there's no ID, there's no owner ID, there's no owner,
+
+63
+00:06:02.720 --> 00:06:08.720
+all of these fields seem to be missing. And why exactly is that? Well, let's take a look at the
+
+64
+00:06:08.720 --> 00:06:12.959
+response model. So the validation is happening because we use this response model of schemas
+
+65
+00:06:12.959 --> 00:06:20.079
+.post. And so if we go to schemas, and we find our post object, or post class, you can see that
+
+66
+00:06:20.079 --> 00:06:26.239
+it expects an ID, created at an owner ID, an owner, and all of that good stuff. And it's saying that
+
+67
+00:06:26.239 --> 00:06:30.799
+none of these have been set. So it looks like there's something wrong with our query. But just
+
+68
+00:06:30.799 --> 00:06:37.440
+to make this a little bit simpler, what I'm going to do is I'm actually going to remove the response
+
+69
+00:06:37.440 --> 00:06:41.119
+model. So I'm going to just comment out that, remove the response models, we're not actually
+
+70
+00:06:41.119 --> 00:06:47.519
+performing any validation. And we're going to see what this looks like now. So when we retrieve the
+
+71
+00:06:47.519 --> 00:06:54.239
+data, I want you to take a look at what this looks like. So this right here is one specific post.
+
+72
+00:06:54.239 --> 00:06:59.440
+And so after our changes, we can see that we've got a property called post. And then within there,
+
+73
+00:06:59.440 --> 00:07:04.000
+we have ID, published, and so on. And then we've got a property of votes. And I'm actually going
+
+74
+00:07:04.000 --> 00:07:11.200
+to copy this as an example. I'm just going to create a new file. And I'm just going to say,
+
+75
+00:07:11.200 --> 00:07:15.200
+we'll just call this example.py, that's fine, it doesn't really matter, we'll delete this in a bit.
+
+76
+00:07:16.079 --> 00:07:22.720
+So this is what it looks like. And when we go back to our path operation, I'm going to return posts.
+
+77
+00:07:26.880 --> 00:07:30.880
+And we can actually return the response model just to see what that looks like.
+
+78
+00:07:31.359 --> 00:07:38.640
+And so now if I do a query, I need to save.
+
+79
+00:07:41.200 --> 00:07:45.679
+If you take a look at the query, this is what it looks like in a working state before we set up the
+
+80
+00:07:45.679 --> 00:07:56.480
+joins. And if I go down to my example, where's my example.py file. So this is what Pydantic expects,
+
+81
+00:07:57.440 --> 00:08:02.799
+expects to get an object with a field of title, content, published ID and so on. However,
+
+82
+00:08:02.799 --> 00:08:07.920
+after I join, something odd happens, we have a field called post. And that breaks everything
+
+83
+00:08:07.920 --> 00:08:11.359
+because it doesn't expect the ID and the published and the owner to be under this.
+
+84
+00:08:11.920 --> 00:08:16.239
+This essentially this dictionary right here. And that's why it's throwing all of these errors.
+
+85
+00:08:16.239 --> 00:08:20.399
+So how exactly do we fix this? Well, what we're going to do is I'm actually going to go to my
+
+86
+00:08:20.399 --> 00:08:26.160
+schemas. And I'm actually going to create a new schema. So we'll call this, you can call this
+
+87
+00:08:26.160 --> 00:08:33.119
+whatever you want. Maybe post vote, or I'm just gonna call this post out. And it's going to be a
+
+88
+00:08:33.119 --> 00:08:38.159
+post base, it's going to extend post base. And what we're gonna do is we're just going to try to match
+
+89
+00:08:38.159 --> 00:08:42.799
+this as close as possible. So this is going to represent a post object, and then we're going to
+
+90
+00:08:42.799 --> 00:08:47.919
+have a field called votes, which is going to be an integer. So here, I can just say, we have
+
+91
+00:08:47.919 --> 00:08:52.000
+something called post. And don't forget to capitalize it because our query, for some reason,
+
+92
+00:08:52.559 --> 00:08:56.960
+returns it with a capital P took me a little while to figure that out. I was running into a few issues.
+
+93
+00:08:59.919 --> 00:09:04.400
+But we can go here and we can say I want to return, I want this to be of type,
+
+94
+00:09:04.400 --> 00:09:10.880
+and then we'll reference this post. Right, so all of these fields will be under a field name post.
+
+95
+00:09:11.840 --> 00:09:15.520
+And then we expect something called votes, which is going to be set to an integer.
+
+96
+00:09:15.520 --> 00:09:23.679
+So let's try this out. And we'll go back to our post.py. And I'm going to call I'm going to
+
+97
+00:09:23.679 --> 00:09:36.719
+reference post.py. And we're going to return results again. And let's just make sure there's
+
+98
+00:09:36.719 --> 00:09:42.080
+no errors, it looks like it's good. And let's see what happens now. All right, we got a little bit
+
+99
+00:09:42.080 --> 00:09:49.359
+of an issue. And it looks like there's a title content, title content, a whole bunch of errors.
+
+100
+00:09:49.359 --> 00:09:55.280
+And so the title and the content are missing for both. So what did we do wrong here, this should
+
+101
+00:09:55.280 --> 00:10:02.320
+have fixed our issue. Well, let's try adding this class config ORM. I think that might actually be
+
+102
+00:10:02.320 --> 00:10:10.799
+what's causing this problem. And now let's try this. That didn't look like it fixed it. Alright,
+
+103
+00:10:10.799 --> 00:10:15.280
+guys, so I was playing around with it. And then I don't know what exactly fixed it. But all I did
+
+104
+00:10:15.280 --> 00:10:22.719
+was I had changed this to a lowercase p. And this led to, you know, us seeing this specific issue,
+
+105
+00:10:23.440 --> 00:10:27.359
+where it says, you know, hey, this post doesn't exist. And then as soon as I recapitalized it,
+
+106
+00:10:29.440 --> 00:10:35.039
+all of a sudden, it started to work again, it starts to work now. So I'm not really sure why
+
+107
+00:10:35.039 --> 00:10:39.840
+it broke in the first place. I didn't change any other code. Just looking back at my Path Operation
+
+108
+00:10:39.840 --> 00:10:44.640
+you can see that I'm now changing my response model to be schemas.post_out.
+
+109
+00:10:45.359 --> 00:10:49.679
+And then we're performing the same results query and then returning it. For some reason or another,
+
+110
+00:10:49.679 --> 00:10:55.520
+it's now properly working. I have no idea what changed. I have no idea exactly what changed,
+
+111
+00:10:55.520 --> 00:10:59.599
+but it's working now. So hopefully you guys don't run into any issues. And hopefully it was just
+
+112
+00:10:59.599 --> 00:11:04.799
+some kind of issue on my machine. But if you do run into the same issue, just try moving it to a
+
+113
+00:11:04.799 --> 00:11:09.520
+lowercase, try restarting the application and changing it back. I have no idea why that would
+
+114
+00:11:09.599 --> 00:11:14.960
+fix it, but it seems to have done something. And so now our results are perfect, we get the post
+
+115
+00:11:14.960 --> 00:11:19.599
+information, we still fetch the owner, which is fantastic. And then we have the votes and then
+
+116
+00:11:19.599 --> 00:11:24.799
+just double-check to make sure that all of your votes are all okay. And so it looks like they all
+
+117
+00:11:24.799 --> 00:11:28.960
+look good. I know that one had two and then the rest should all have zero. So everything's looking
+
+118
+00:11:28.960 --> 00:11:35.919
+pretty, pretty good. The next thing that we need to do is actually go ahead and add our filters
+
+119
+00:11:35.919 --> 00:11:40.799
+back in. So let's see if I can still filter on all of these. And so I'm just going to copy this.
+
+120
+00:11:45.119 --> 00:11:48.880
+And then before I perform the dot all, I'm going to paste that in there.
+
+121
+00:11:50.960 --> 00:11:55.599
+Whoops, I forgot to copy.
+
+122
+00:11:55.599 --> 00:12:10.640
+All right, and then let's test this out again. I think things are still working. But let's just
+
+123
+00:12:10.640 --> 00:12:17.840
+add a few extra query parameters. So I'll say, search equals beaches.
+
+124
+00:12:17.840 --> 00:12:26.960
+Right, and then it looks like it should only return posts with the word beaches. And then let's
+
+125
+00:12:26.960 --> 00:12:37.520
+try limit equals to remove this search for now. And that works too. So it looks like we get to
+
+126
+00:12:37.520 --> 00:12:42.960
+keep all of the same functionality that we had before. So I'm going to just write this as posts,
+
+127
+00:12:42.960 --> 00:12:47.039
+we're going to comment this out, just for reference. And then we're going to return
+
+128
+00:12:47.039 --> 00:12:52.640
+posts like we normally do. Then one more time, and it looks like everything is still working
+
+129
+00:12:52.640 --> 00:12:53.760
+just fine. Perfect.

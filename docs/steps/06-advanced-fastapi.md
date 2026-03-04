@@ -94,31 +94,37 @@
 ## SQLAlchemy Foreign Keys
 
 - [Notes](https://notes.kodekloud.com/docs/Python-API-Development-with-FastAPI/Advanced-FastAPI/Sqlalchemy-Foreign-Keys/page)
-- [Commit](https://github.com/thehimel/kodekloud-fastapi/commit/6c4d6b1a31ce285c06600fd9a76dd99fce4dbab1)
+- Commit: [feat: add owner_id foreign key to posts and associate posts with users via ownership](https://github.com/thehimel/kodekloud-fastapi/commit/6c4d6b1a31ce285c06600fd9a76dd99fce4dbab1)
 
 ## Update Post Schema To Include Foreign Key
 
 - [Notes](https://notes.kodekloud.com/docs/Python-API-Development-with-FastAPI/Advanced-FastAPI/Update-Post-Schema-To-Include-User/page)
+- Commit: [feat: add owner_id foreign key to posts and associate posts with users via ownership](https://github.com/thehimel/kodekloud-fastapi/commit/6c4d6b1a31ce285c06600fd9a76dd99fce4dbab1)
 
 ## Assigning Owner ID When Creating Posts
 
 - [Notes](https://notes.kodekloud.com/docs/Python-API-Development-with-FastAPI/Advanced-FastAPI/Assigning-Owner-Id-When-Creating-New-Post/page)
+- Commit: [feat: add owner_id foreign key to posts and associate posts with users via ownership](https://github.com/thehimel/kodekloud-fastapi/commit/6c4d6b1a31ce285c06600fd9a76dd99fce4dbab1)
 
 ## Delete Update Only Your Own Posts
 
 - [Notes](https://notes.kodekloud.com/docs/Python-API-Development-with-FastAPI/Advanced-FastAPI/Delete-Update-Only-Your-Own-Posts/page)
+- [Commit](https://github.com/thehimel/kodekloud-fastapi/commit/66bbd400ea1e7d2070fca6f3087bcae6256f394f)
 
 ## Retrieve Only Your Own Posts
 
 - [Notes](https://notes.kodekloud.com/docs/Python-API-Development-with-FastAPI/Advanced-FastAPI/Retrieve-Only-Your-Own-Posts/page)
+- [Commit](https://github.com/thehimel/kodekloud-fastapi/commit/8d88f5f2ad4d6ea2bf33cef69c34de0bb3e348d2)
 
 ## SQLAlchemy Relationships
 
 - [Notes](https://notes.kodekloud.com/docs/Python-API-Development-with-FastAPI/Advanced-FastAPI/Sqlalchemy-Relationships/page)
+- [Commit](https://github.com/thehimel/kodekloud-fastapi/commit/665764e1cc11240d9c4114ff329ee3faf31b7a8c)
 
 ## Query Parameters
 
 - [Notes](https://notes.kodekloud.com/docs/Python-API-Development-with-FastAPI/Advanced-FastAPI/Query-Parameters/page)
+- [Commit](https://github.com/thehimel/kodekloud-fastapi/commit/8b4e37da93f64c927206d6f224d86fa3963be10d)
 
 ## Cleanup Main Py File
 
@@ -139,10 +145,12 @@
 ## Votes With SQLAlchemy
 
 - [Notes](https://notes.kodekloud.com/docs/Python-API-Development-with-FastAPI/Advanced-FastAPI/Votes-With-Sqlalchemy/page)
+- [Commit](https://github.com/thehimel/kodekloud-fastapi/commit/72aae21deeaaaba23568d9019bc9bc9a4765d099)
 
 ## Votes Route
 
 - [Notes](https://notes.kodekloud.com/docs/Python-API-Development-with-FastAPI/Advanced-FastAPI/Votes-Route/page)
+- [Commit](https://github.com/thehimel/kodekloud-fastapi/commit/bb4a3a8eb57ef87caee3037b224b0c944a6e5a0b)
 
 ## SQL Joins
 
