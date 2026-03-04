@@ -1,5 +1,8 @@
 # Testing
 
+- Project test suite: See [Tests Setup](config/tests.md) for structure, fixtures, and how to run tests.
+- Commit: [test: add comprehensive test suite for posts, votes, users, and authentication endpoints](https://github.com/thehimel/kodekloud-fastapi/commit/f8195f3b5fdce2ec0f1534fc5e81bf392c471a8f)
+
 ## Testing Intro
 
 - [Notes](https://notes.kodekloud.com/docs/Python-API-Development-with-FastAPI/Testing/Testing-Intro/page)

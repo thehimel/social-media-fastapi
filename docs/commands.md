@@ -164,6 +164,10 @@ ruff format app/
 
 ## Pytest
 
+Run from the project root. See [Testing](steps/09-testing.md) and [Tests Setup](steps/config/tests.md) for the full guide.
+
+**Prerequisite:** Create the test database (e.g. `kodekloud-fastapi_test`) before running tests. See [Tests Setup](steps/config/tests.md#prerequisites).
+
 ```shell
 # Run all tests (minimal output)
 pytest
@@ -173,6 +177,12 @@ pytest -v
 
 # Show print statements (disable output capture; useful when debugging)
 pytest -v -s
+
+# Stop on first failure (useful when debugging)
+pytest -x
+
+# Suppress warning messages
+pytest --disable-warnings
 
 # Explore all available options
 pytest --help
