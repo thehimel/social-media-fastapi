@@ -173,7 +173,7 @@ app/
 | **schemas** | Pydantic models; request/response validation for the slice                       |
 | **models**  | Shared DB entities; used across slices                                           |
 
-**Handler** — HTTP entry point for the slice. Receives the request, validates input (via schemas), calls the service, and returns the response. Thin: no business logic. Example: `create_post` handler parses JSON → validates with `PostCreate` schema → calls `post_service.create()` → returns `PostResponse`.
+**Handler** — HTTP entry point for the slice. Receives the request, validates input (via schemas), calls the service, and returns the response. Thin: no business logic. Example: `create_post` handler parses JSON → validates with `PostCreate` schema → calls `post_service.create()` → returns `Post`.
 
 ---
 

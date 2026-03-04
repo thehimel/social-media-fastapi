@@ -85,9 +85,22 @@ pre-commit run --all-files
 pre-commit run
 ```
 
+## JWT
+
+```shell
+# Generate a secure secret key for JWT (set as JWT_SECRET_KEY in .env)
+openssl rand -hex 32
+```
+
 ## Install Dependencies
 
 ```shell
 # Install FastAPI with all optional dependencies; Note quotes to avoid shell issues with brackets
 pip install "fastapi[all]"
+
+# Install bcrypt for password hashing
+pip install bcrypt
+
+# Install cryptography for JWT signing
+pip install python-jose[cryptography]
 ```

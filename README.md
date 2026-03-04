@@ -18,3 +18,5 @@
 - [Redoc](https://github.com/Redocly/redoc)
 - [SQLAlchemy Documentation](https://www.sqlalchemy.org/)
 - [Alembic Documentation](https://alembic.sqlalchemy.org/en/latest/)
+- [JWT Introduction](https://jwt.io/introduction/)
+- [Understanding Token-based Authentication](https://auth0.com/learn/token-based-authentication-made-easy)
