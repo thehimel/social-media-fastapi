@@ -19,6 +19,9 @@ class Settings(BaseSettings):
     postgres_db: str = "kodekloud-fastapi"
     sql_echo: bool = False
 
+    # Auth: password hashed at runtime for login timing-attack mitigation when user is not found.
+    auth_dummy_password: str = ""
+
 
 try:
     settings = Settings()
