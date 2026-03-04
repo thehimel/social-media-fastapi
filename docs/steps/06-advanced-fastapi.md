@@ -159,7 +159,9 @@
 ## Joins SQLAlchemy
 
 - [Notes](https://notes.kodekloud.com/docs/Python-API-Development-with-FastAPI/Advanced-FastAPI/Joins-Sqlalchemy/page)
+- Commit: [feat: include vote counts in post endpoints using join query logic](https://github.com/thehimel/kodekloud-fastapi/commit/5ae02f3a8190bdaf91d55b854731482873838ae6)
 
 ## Get One Post Join
 
 - [Notes](https://notes.kodekloud.com/docs/Python-API-Development-with-FastAPI/Advanced-FastAPI/Get-One-Post-Join/page)
+- Commit: [feat: include vote counts in post endpoints using join query logic](https://github.com/thehimel/kodekloud-fastapi/commit/5ae02f3a8190bdaf91d55b854731482873838ae6)

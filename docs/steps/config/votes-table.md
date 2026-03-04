@@ -26,8 +26,8 @@ erDiagram
     }
 
     votes {
-        int user_id PK,FK
         int post_id PK,FK
+        int user_id PK,FK
     }
 ```
 
@@ -56,7 +56,7 @@ A `voted_posts` column on `users` would need to store multiple post IDs, which i
 
 The **votes** table is a junction table that:
 
-- Stores one row per user–post pair: `(user_id, post_id)`
+- Stores one row per user–post pair: `(post_id, user_id)`
 - Uses a composite primary key to enforce one vote per user per post
 - Allows adding and removing votes by inserting or deleting rows
 - Enables counting votes per post with `COUNT(*)`
@@ -68,6 +68,6 @@ The **votes** table is a junction table that:
 |---------|----------------------------------------------|
 | `users` | User accounts                                |
 | `posts` | Posts (with `owner_id` → `users`)            |
-| `votes` | Which user voted for which post (user_id, post_id) |
+| `votes` | Which user voted for which post (post_id, user_id) |
 
-See [posts/models.py](../../../app/posts/models.py) for the `Vote` model definition.
+See [posts/models.py](../../../app/posts/models.py) for the `Vote` model definition. For how vote counts are fetched via joins, see [Joins (SQLAlchemy)](./joins-sqlalchemy.md).
