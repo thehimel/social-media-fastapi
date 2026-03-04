@@ -21,3 +21,12 @@ class Post(Base):
     owner_id = Column(Integer, ForeignKey("users.id", ondelete="CASCADE"), nullable=False)
 
     owner = relationship(User)
+
+
+class Vote(Base):
+    """ORM model for the votes table. Composite primary key (user_id, post_id) ensures one vote per user per post."""
+
+    __tablename__ = "votes"
+
+    user_id = Column(Integer, ForeignKey("users.id", ondelete="CASCADE"), primary_key=True)
+    post_id = Column(Integer, ForeignKey("posts.id", ondelete="CASCADE"), primary_key=True)
