@@ -4,9 +4,11 @@ from app.posts import models
 from app.posts import schemas
 
 
-def get_posts(db: Session) -> list[models.Post]:
-    posts = db.query(models.Post).all()  # Fetch all posts from the database.
-    return posts  # type: ignore[return-value]
+def get_posts(db: Session, owner_id: int | None = None) -> list[models.Post]:
+    query = db.query(models.Post)
+    if owner_id is not None:
+        query = query.filter(models.Post.owner_id == owner_id)
+    return query.all()  # type: ignore[return-value]
 
 
 def get_post(db: Session, post_id: int) -> models.Post | None:
