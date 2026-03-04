@@ -4,11 +4,19 @@ from app.posts import models
 from app.posts import schemas
 
 
-def get_posts(db: Session, owner_id: int | None = None) -> list[models.Post]:
+def get_posts(
+    db: Session,
+    owner_id: int | None = None,
+    limit: int = 10,
+    skip: int = 0,
+    search: str | None = "",
+) -> list[models.Post]:
     query = db.query(models.Post)
     if owner_id is not None:
         query = query.filter(models.Post.owner_id == owner_id)
-    return query.all()  # type: ignore[return-value]
+    if search:
+        query = query.filter(models.Post.title.contains(search))
+    return query.limit(limit).offset(skip).all()  # type: ignore[return-value]
 
 
 def get_post(db: Session, post_id: int) -> models.Post | None:

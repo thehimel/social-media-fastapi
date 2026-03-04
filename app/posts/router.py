@@ -1,3 +1,5 @@
+from typing import Optional
+
 from fastapi import APIRouter, Depends, HTTPException, status, Response
 from sqlalchemy.exc import SQLAlchemyError
 from sqlalchemy.orm import Session
@@ -20,9 +22,18 @@ router = APIRouter()
 def get_posts(
     db: Session = Depends(get_db),
     current_user: user_models.User = Depends(get_current_user),
+    limit: int = 10,
+    skip: int = 0,
+    search: Optional[str] = "",
 ):
     try:
-        return service_get_posts(db, owner_id=current_user.id)
+        return service_get_posts(
+            db,
+            owner_id=current_user.id,
+            limit=limit,
+            skip=skip,
+            search=search or "",
+        )
     except SQLAlchemyError as e:
         raise HTTPException(
             status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
