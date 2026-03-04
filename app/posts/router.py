@@ -52,10 +52,15 @@ def update_post(
     db: Session = Depends(get_db),
     current_user: user_models.User = Depends(get_current_user),
 ):
-    post = service_update_post(db, post_id, payload)
+    post = service_get_post(db, post_id)
     if post is None:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"Post with id: {post_id} was not found")
-    return post
+    if post.owner_id != current_user.id:
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="Not authorized to perform requested action",
+        )
+    return service_update_post(db, post_id, payload)
 
 
 @router.delete("/{post_id}", status_code=status.HTTP_204_NO_CONTENT)
@@ -64,7 +69,13 @@ def delete_post(
     db: Session = Depends(get_db),
     current_user: user_models.User = Depends(get_current_user),
 ):
-    is_deleted = service_delete_post(db, post_id)
-    if not is_deleted:
+    post = service_get_post(db, post_id)
+    if post is None:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"Post with id: {post_id} was not found")
+    if post.owner_id != current_user.id:
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="Not authorized to perform requested action",
+        )
+    service_delete_post(db, post_id)
     return Response(status_code=status.HTTP_204_NO_CONTENT)
