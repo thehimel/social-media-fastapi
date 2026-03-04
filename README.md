@@ -20,3 +20,6 @@
 - [Alembic Documentation](https://alembic.sqlalchemy.org/en/latest/)
 - [JWT Introduction](https://jwt.io/introduction/)
 - [Understanding Token-based Authentication](https://auth0.com/learn/token-based-authentication-made-easy)
+- [Kubernetes Documentation](https://kubernetes.io/docs/)
+- [Docker Hub](https://hub.docker.com/)
+- [Terraform Registry](https://registry.terraform.io/)

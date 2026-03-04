@@ -85,36 +85,73 @@
 
 ## SQL Relationship Basics
 
+- [Notes](https://notes.kodekloud.com/docs/Python-API-Development-with-FastAPI/Advanced-FastAPI/Sql-Relationship-Basics/page)
+
 ## Postgres Foreign Keys Configuring
+
+- [Notes](https://notes.kodekloud.com/docs/Python-API-Development-with-FastAPI/Advanced-FastAPI/Postgres-Foreign-Keys-Configuring/page)
 
 ## SQLAlchemy Foreign Keys
 
+- [Notes](https://notes.kodekloud.com/docs/Python-API-Development-with-FastAPI/Advanced-FastAPI/Sqlalchemy-Foreign-Keys/page)
+- [Commit](https://github.com/thehimel/kodekloud-fastapi/commit/6c4d6b1a31ce285c06600fd9a76dd99fce4dbab1)
+
 ## Update Post Schema To Include Foreign Key
+
+- [Notes](https://notes.kodekloud.com/docs/Python-API-Development-with-FastAPI/Advanced-FastAPI/Update-Post-Schema-To-Include-User/page)
 
 ## Assigning Owner ID When Creating Posts
 
+- [Notes](https://notes.kodekloud.com/docs/Python-API-Development-with-FastAPI/Advanced-FastAPI/Assigning-Owner-Id-When-Creating-New-Post/page)
+
 ## Delete Update Only Your Own Posts
+
+- [Notes](https://notes.kodekloud.com/docs/Python-API-Development-with-FastAPI/Advanced-FastAPI/Delete-Update-Only-Your-Own-Posts/page)
 
 ## Retrieve Only Your Own Posts
 
+- [Notes](https://notes.kodekloud.com/docs/Python-API-Development-with-FastAPI/Advanced-FastAPI/Retrieve-Only-Your-Own-Posts/page)
+
 ## SQLAlchemy Relationships
+
+- [Notes](https://notes.kodekloud.com/docs/Python-API-Development-with-FastAPI/Advanced-FastAPI/Sqlalchemy-Relationships/page)
 
 ## Query Parameters
 
+- [Notes](https://notes.kodekloud.com/docs/Python-API-Development-with-FastAPI/Advanced-FastAPI/Query-Parameters/page)
+
 ## Cleanup Main Py File
+
+- [Notes](https://notes.kodekloud.com/docs/Python-API-Development-with-FastAPI/Advanced-FastAPI/Cleanup-Main-Py-File/page)
 
 ## Environment Variables
 
+- [Notes](https://notes.kodekloud.com/docs/Python-API-Development-with-FastAPI/Advanced-FastAPI/Environment-Variables/page)
+
 ## Vote Like Theory
+
+- [Notes](https://notes.kodekloud.com/docs/Python-API-Development-with-FastAPI/Advanced-FastAPI/Vote-Like-Theory/page)
 
 ## Creating Votes Table PgAdmin
 
+- [Notes](https://notes.kodekloud.com/docs/Python-API-Development-with-FastAPI/Advanced-FastAPI/Creating-Votes-Table-Pgadmin/page)
+
 ## Votes With SQLAlchemy
+
+- [Notes](https://notes.kodekloud.com/docs/Python-API-Development-with-FastAPI/Advanced-FastAPI/Votes-With-Sqlalchemy/page)
 
 ## Votes Route
 
+- [Notes](https://notes.kodekloud.com/docs/Python-API-Development-with-FastAPI/Advanced-FastAPI/Votes-Route/page)
+
 ## SQL Joins
+
+- [Notes](https://notes.kodekloud.com/docs/Python-API-Development-with-FastAPI/Advanced-FastAPI/Sql-Joins/page)
 
 ## Joins SQLAlchemy
 
+- [Notes](https://notes.kodekloud.com/docs/Python-API-Development-with-FastAPI/Advanced-FastAPI/Joins-Sqlalchemy/page)
+
 ## Get One Post Join
+
+- [Notes](https://notes.kodekloud.com/docs/Python-API-Development-with-FastAPI/Advanced-FastAPI/Get-One-Post-Join/page)
