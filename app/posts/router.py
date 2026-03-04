@@ -16,14 +16,19 @@ router = APIRouter()
 
 @router.get("", response_model=list[schemas.Post])
 @router.get("/", response_model=list[schemas.Post])
-def get_posts(db: Session = Depends(get_db)):  # Depends() injects a fresh session per request and closes it after.
+def get_posts(
+    db: Session = Depends(get_db),
+    current_user: TokenData = Depends(get_current_user),
+):
     return service_get_posts(db)
 
 
 @router.get("/{post_id}", response_model=schemas.Post)
 def get_post(
-    post_id: int, db: Session = Depends(get_db)
-):  # Depends() injects a fresh session per request and closes it after.
+    post_id: int,
+    db: Session = Depends(get_db),
+    current_user: TokenData = Depends(get_current_user),
+):
     post = service_get_post(db, post_id)
     if post is None:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"Post with id: {post_id} was not found")
@@ -42,8 +47,11 @@ def create_post(
 
 @router.put("/{post_id}", response_model=schemas.Post)
 def update_post(
-    post_id: int, payload: schemas.PostCreate, db: Session = Depends(get_db)
-):  # Depends() injects a fresh session per request and closes it after.
+    post_id: int,
+    payload: schemas.PostCreate,
+    db: Session = Depends(get_db),
+    current_user: TokenData = Depends(get_current_user),
+):
     post = service_update_post(db, post_id, payload)
     if post is None:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"Post with id: {post_id} was not found")
@@ -52,8 +60,10 @@ def update_post(
 
 @router.delete("/{post_id}", status_code=status.HTTP_204_NO_CONTENT)
 def delete_post(
-    post_id: int, db: Session = Depends(get_db)
-):  # Depends() injects a fresh session per request and closes it after.
+    post_id: int,
+    db: Session = Depends(get_db),
+    current_user: TokenData = Depends(get_current_user),
+):
     is_deleted = service_delete_post(db, post_id)
     if not is_deleted:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"Post with id: {post_id} was not found")
