@@ -22,6 +22,12 @@ class Settings(BaseSettings):
     # Auth: password hashed at runtime for login timing-attack mitigation when user is not found.
     auth_dummy_password: str = ""
 
+    # JWT: generate secret with `openssl rand -hex 32`
+    jwt_secret_key: str
+    jwt_algorithm: str = "HS256"
+    jwt_access_token_expire_minutes: int = 30
+    jwt_token_type: str = "bearer"
+
 
 try:
     settings = Settings()
