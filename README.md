@@ -23,3 +23,5 @@
 - [Kubernetes Documentation](https://kubernetes.io/docs/)
 - [Docker Hub](https://hub.docker.com/)
 - [Terraform Registry](https://registry.terraform.io/)
+- [Pytest Documentation](https://docs.pytest.org/)
+- [Effective Python Testing With pytest](https://realpython.com/pytest-python-testing/)

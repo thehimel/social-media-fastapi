@@ -162,6 +162,22 @@ ruff check app/
 ruff format app/
 ```
 
+## Pytest
+
+```shell
+# Run all tests (minimal output)
+pytest
+
+# List each test function (verbose)
+pytest -v
+
+# Show print statements (disable output capture; useful when debugging)
+pytest -v -s
+
+# Explore all available options
+pytest --help
+```
+
 ## Pre-commit
 
 ```shell
