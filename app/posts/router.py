@@ -2,8 +2,8 @@ from fastapi import APIRouter, Depends, HTTPException, status, Response
 from sqlalchemy.orm import Session
 
 from app.auth.dependencies import get_current_user
-from app.auth.schemas import TokenData
 from app.database import get_db
+from app.users import models as user_models
 from app.posts import schemas
 from app.posts.service import create_post as service_create_post
 from app.posts.service import delete_post as service_delete_post
@@ -18,7 +18,7 @@ router = APIRouter()
 @router.get("/", response_model=list[schemas.Post])
 def get_posts(
     db: Session = Depends(get_db),
-    current_user: TokenData = Depends(get_current_user),
+    current_user: user_models.User = Depends(get_current_user),
 ):
     return service_get_posts(db)
 
@@ -27,7 +27,7 @@ def get_posts(
 def get_post(
     post_id: int,
     db: Session = Depends(get_db),
-    current_user: TokenData = Depends(get_current_user),
+    current_user: user_models.User = Depends(get_current_user),
 ):
     post = service_get_post(db, post_id)
     if post is None:
@@ -40,7 +40,7 @@ def get_post(
 def create_post(
     payload: schemas.PostCreate,
     db: Session = Depends(get_db),
-    current_user: TokenData = Depends(get_current_user),
+    current_user: user_models.User = Depends(get_current_user),
 ):
     return service_create_post(db, payload)
 
@@ -50,7 +50,7 @@ def update_post(
     post_id: int,
     payload: schemas.PostCreate,
     db: Session = Depends(get_db),
-    current_user: TokenData = Depends(get_current_user),
+    current_user: user_models.User = Depends(get_current_user),
 ):
     post = service_update_post(db, post_id, payload)
     if post is None:
@@ -62,7 +62,7 @@ def update_post(
 def delete_post(
     post_id: int,
     db: Session = Depends(get_db),
-    current_user: TokenData = Depends(get_current_user),
+    current_user: user_models.User = Depends(get_current_user),
 ):
     is_deleted = service_delete_post(db, post_id)
     if not is_deleted:
