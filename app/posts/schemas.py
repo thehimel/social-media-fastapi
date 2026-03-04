@@ -26,3 +26,12 @@ class Post(PostBase):
     # Allow Pydantic to read from ORM attributes (e.g. post.id, post.title) so we can return SQLAlchemy model
     # instances directly from endpoints; without this, passing an ORM object raises ValidationError.
     model_config = ConfigDict(from_attributes=True)
+
+
+class PostOut(BaseModel):
+    """Post with vote count from a join query."""
+
+    post: Post
+    votes: int
+
+    model_config = ConfigDict(from_attributes=True)

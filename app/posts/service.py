@@ -1,3 +1,4 @@
+from sqlalchemy import func
 from sqlalchemy.orm import Session
 
 from app.posts import models
@@ -10,18 +11,54 @@ def get_posts(
     limit: int = 10,
     skip: int = 0,
     search: str | None = "",
-) -> list[models.Post]:
-    query = db.query(models.Post)
+) -> list[schemas.PostOut]:
+    """
+    Fetch posts with vote counts using a join query.
+
+    Join reasoning:
+    - LEFT OUTER JOIN (isouter=True) on votes: Include every post even when it has zero votes.
+      An INNER JOIN would exclude posts with no votes.
+    - GROUP BY Post.id: Aggregate vote rows per post so we get one row per post with a count.
+    - func.count(Vote.post_id): Count votes per post. Using post_id ensures we count rows from
+      the votes table; counting Post.id would always be 1 per group.
+    """
+    query = (
+        db.query(models.Post, func.count(models.Vote.post_id).label("votes"))
+        .join(models.Vote, models.Vote.post_id == models.Post.id, isouter=True)
+        .group_by(models.Post.id)
+    )
     if owner_id is not None:
         query = query.filter(models.Post.owner_id == owner_id)
     if search:
         query = query.filter(models.Post.title.contains(search))
-    return query.limit(limit).offset(skip).all()  # type: ignore[return-value]
+    rows = query.limit(limit).offset(skip).all()
+    return [schemas.PostOut(post=row.Post, votes=row.votes) for row in rows]
 
 
 def get_post(db: Session, post_id: int) -> models.Post | None:
     post = db.get(models.Post, post_id)  # Fetch by primary key to return the post.
     return post
+
+
+def get_post_with_votes(db: Session, post_id: int) -> schemas.PostOut | None:
+    """
+    Fetch a single post with its vote count using a join query.
+
+    Uses the same join pattern as get_posts for consistency:
+    - LEFT OUTER JOIN on votes so posts with zero votes still return (votes=0).
+    - GROUP BY Post.id to aggregate and count votes per post.
+    - filter(Post.id == post_id) to restrict to the requested post.
+    """
+    row = (
+        db.query(models.Post, func.count(models.Vote.post_id).label("votes"))
+        .join(models.Vote, models.Vote.post_id == models.Post.id, isouter=True)
+        .group_by(models.Post.id)
+        .filter(models.Post.id == post_id)
+        .first()
+    )
+    if row is None:
+        return None
+    return schemas.PostOut(post=row.Post, votes=row.votes)
 
 
 def create_post(db: Session, payload: schemas.PostCreate, owner_id: int) -> models.Post:

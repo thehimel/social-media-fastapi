@@ -11,6 +11,7 @@ from app.posts import schemas
 from app.posts.service import create_post as service_create_post
 from app.posts.service import delete_post as service_delete_post
 from app.posts.service import get_post as service_get_post
+from app.posts.service import get_post_with_votes as service_get_post_with_votes
 from app.posts.service import get_posts as service_get_posts
 from app.posts.service import update_post as service_update_post
 from app.votes.types import AddVoteResult, RemoveVoteResult
@@ -20,8 +21,8 @@ from app.votes.service import remove_vote as service_remove_vote
 router = APIRouter()
 
 
-@router.get("", response_model=list[schemas.Post])
-@router.get("/", response_model=list[schemas.Post])
+@router.get("", response_model=list[schemas.PostOut])
+@router.get("/", response_model=list[schemas.PostOut])
 def get_posts(
     db: Session = Depends(get_db),
     current_user: user_models.User = Depends(get_current_user),
@@ -44,21 +45,21 @@ def get_posts(
         ) from e
 
 
-@router.get("/{post_id}", response_model=schemas.Post)
+@router.get("/{post_id}", response_model=schemas.PostOut)
 def get_post(
     post_id: int,
     db: Session = Depends(get_db),
     current_user: user_models.User = Depends(get_current_user),
 ):
-    post = service_get_post(db, post_id)
-    if post is None:
+    result = service_get_post_with_votes(db, post_id)
+    if result is None:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"Post with id: {post_id} was not found")
-    if post.owner_id != current_user.id:
+    if result.post.owner_id != current_user.id:
         raise HTTPException(
             status_code=status.HTTP_403_FORBIDDEN,
             detail="Not authorized to perform requested action",
         )
-    return post
+    return result
 
 
 @router.post("", response_model=schemas.Post, status_code=status.HTTP_201_CREATED)
