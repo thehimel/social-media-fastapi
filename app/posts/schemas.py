@@ -3,6 +3,8 @@ from typing import Optional
 
 from pydantic import BaseModel, ConfigDict
 
+from app.users.schemas import UserResponse
+
 
 class PostBase(BaseModel):
     title: str
@@ -19,6 +21,7 @@ class Post(PostBase):
     id: int
     owner_id: int
     created_at: datetime
+    owner: UserResponse
 
     # Allow Pydantic to read from ORM attributes (e.g. post.id, post.title) so we can return SQLAlchemy model
     # instances directly from endpoints; without this, passing an ORM object raises ValidationError.
