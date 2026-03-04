@@ -2,5 +2,6 @@
 
 - [Server Basics](./server-basics.md)
 - [HTTP Request and Response](./http-request-response.md)
+- [REST vs GraphQL](./rest-vs-graphql.md)
 - [Async and Concurrency](./async-concurrency.md)
 - [Architectural Patterns](./architectural-patterns.md)
