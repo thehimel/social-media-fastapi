@@ -8,3 +8,5 @@ variables:
     value: "{{host}}/api/users"
   - name: auth
     value: "{{host}}/api/auth"
+  - secret: true
+    name: access_token

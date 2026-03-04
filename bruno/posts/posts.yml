@@ -6,7 +6,9 @@ info:
 http:
   method: GET
   url: "{{posts}}"
-  auth: inherit
+  auth:
+    type: bearer
+    token: "{{access_token}}"
 
 settings:
   encodeUrl: true

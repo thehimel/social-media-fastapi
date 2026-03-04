@@ -6,7 +6,9 @@ info:
 http:
   method: DELETE
   url: "{{posts}}/1"
-  auth: inherit
+  auth:
+    type: bearer
+    token: "{{access_token}}"
 
 settings:
   encodeUrl: true

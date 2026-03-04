@@ -13,7 +13,9 @@ http:
         "title": "top beaches in florida",
         "content": "check out these awesome beaches"
       }
-  auth: inherit
+  auth:
+    type: bearer
+    token: "{{access_token}}"
 
 settings:
   encodeUrl: true

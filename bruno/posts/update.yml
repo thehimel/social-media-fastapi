@@ -15,7 +15,9 @@ http:
         "published": true,
         "rating": 5
       }
-  auth: inherit
+  auth:
+    type: bearer
+    token: "{{access_token}}"
 
 settings:
   encodeUrl: true
