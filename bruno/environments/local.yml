@@ -6,3 +6,5 @@ variables:
     value: "{{host}}/api/posts"
   - name: users
     value: "{{host}}/api/users"
+  - name: auth
+    value: "{{host}}/api/auth"
