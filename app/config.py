@@ -28,6 +28,9 @@ class Settings(BaseSettings):
     jwt_access_token_expire_minutes: int = 30
     jwt_token_type: str = "bearer"
 
+    # CORS: "*" allows all origins (dev only); use comma-separated list for production.
+    cors_origins: str = "*"
+
 
 try:
     settings = Settings()
