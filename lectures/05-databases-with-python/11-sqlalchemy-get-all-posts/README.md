@@ -1,1 +1,0 @@
-# SQLAlchemy Get All Posts
