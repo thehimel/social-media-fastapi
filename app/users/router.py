@@ -10,7 +10,7 @@ from app.users.service import get_user as service_get_user
 router = APIRouter()
 
 
-@router.get("/{user_id}", response_model=schemas.UserResponse)
+@router.get("/{user_id}", response_model=schemas.UserResponse, name="users_get")
 def get_user(user_id: int, db: Session = Depends(get_db)):
     user = service_get_user(db, user_id)
     if user is None:
@@ -21,8 +21,8 @@ def get_user(user_id: int, db: Session = Depends(get_db)):
     return user
 
 
-@router.post("", response_model=schemas.UserResponse, status_code=status.HTTP_201_CREATED)
-@router.post("/", response_model=schemas.UserResponse, status_code=status.HTTP_201_CREATED)
+@router.post("", response_model=schemas.UserResponse, status_code=status.HTTP_201_CREATED, name="users_create")
+@router.post("/", response_model=schemas.UserResponse, status_code=status.HTTP_201_CREATED, name="users_create")
 def create_user(payload: schemas.UserCreate, db: Session = Depends(get_db)):
     try:
         return service_create_user(db, payload)

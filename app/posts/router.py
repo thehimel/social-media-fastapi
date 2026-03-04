@@ -21,8 +21,8 @@ from app.votes.service import remove_vote as service_remove_vote
 router = APIRouter()
 
 
-@router.get("", response_model=list[schemas.PostOut])
-@router.get("/", response_model=list[schemas.PostOut])
+@router.get("", response_model=list[schemas.PostOut], name="posts_list")
+@router.get("/", response_model=list[schemas.PostOut], name="posts_list")
 def get_posts(
     db: Session = Depends(get_db),
     current_user: user_models.User = Depends(get_current_user),
@@ -62,8 +62,8 @@ def get_post(
     return result
 
 
-@router.post("", response_model=schemas.Post, status_code=status.HTTP_201_CREATED)
-@router.post("/", response_model=schemas.Post, status_code=status.HTTP_201_CREATED)
+@router.post("", response_model=schemas.Post, status_code=status.HTTP_201_CREATED, name="posts_create")
+@router.post("/", response_model=schemas.Post, status_code=status.HTTP_201_CREATED, name="posts_create")
 def create_post(
     payload: schemas.PostCreate,
     db: Session = Depends(get_db),
@@ -72,7 +72,7 @@ def create_post(
     return service_create_post(db, payload, owner_id=current_user.id)
 
 
-@router.put("/{post_id}", response_model=schemas.Post)
+@router.put("/{post_id}", response_model=schemas.Post, name="posts_update")
 def update_post(
     post_id: int,
     payload: schemas.PostCreate,
@@ -90,7 +90,7 @@ def update_post(
     return service_update_post(db, post_id, payload)
 
 
-@router.delete("/{post_id}", status_code=status.HTTP_204_NO_CONTENT)
+@router.delete("/{post_id}", status_code=status.HTTP_204_NO_CONTENT, name="posts_delete")
 def delete_post(
     post_id: int,
     db: Session = Depends(get_db),
@@ -108,7 +108,7 @@ def delete_post(
     return Response(status_code=status.HTTP_204_NO_CONTENT)
 
 
-@router.post("/{post_id}/vote", status_code=status.HTTP_201_CREATED)
+@router.post("/{post_id}/vote", status_code=status.HTTP_201_CREATED, name="posts_add_vote")
 def add_vote(
     post_id: int,
     db: Session = Depends(get_db),
@@ -125,7 +125,7 @@ def add_vote(
     return {"message": "successfully added vote"}
 
 
-@router.delete("/{post_id}/vote", status_code=status.HTTP_204_NO_CONTENT)
+@router.delete("/{post_id}/vote", status_code=status.HTTP_204_NO_CONTENT, name="posts_remove_vote")
 def remove_vote(
     post_id: int,
     db: Session = Depends(get_db),

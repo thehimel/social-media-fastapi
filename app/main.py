@@ -22,7 +22,7 @@ app.add_middleware(
 app.include_router(api_router, prefix="/api", tags=["API"])
 
 
-@app.get("/")
+@app.get("/", name="root")
 def root():
     return {"message": "Hello World"}
 
