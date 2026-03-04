@@ -6,7 +6,38 @@
 uvicorn app.main:app --reload
 ```
 
-## Docker Compose (PostgreSQL)
+## Docker
+
+### Build and Run (standalone)
+
+```shell
+# Build the image with a custom tag
+docker build -t my-python-app .
+
+# Run the container (interactive, remove on exit)
+docker run -it --rm --name running-my-python-app my-python-app
+```
+
+### Run a Single Python Script
+
+```shell
+# Mount current directory and run a script (replace your-demon-script.py with your file)
+docker run -it --rm -v "$PWD":/usr/src/app -w /usr/src/app python:3.14 python your-demon-script.py
+```
+
+### Inspect Container Filesystem
+
+```shell
+# Open a shell in the running API container (use container name from docker compose ps)
+docker exec -it kodekloud-fastapi-api bash
+
+# Verify bind mount: check that local files are available
+cat app/main.py
+```
+
+## Docker Compose
+
+### PostgreSQL only (existing)
 
 ```shell
 # Start PostgreSQL in the background
@@ -30,6 +61,65 @@ docker compose exec postgres psql -U postgres -d kodekloud-fastapi -c "SELECT 1;
 # Inspect PostgreSQL logs
 docker compose logs postgres
 ```
+
+### Development (API + PostgreSQL, bind mount, --reload)
+
+```shell
+# Start API and PostgreSQL
+docker compose -f docker-compose.dev.yml up -d
+
+# Rebuild after Dockerfile changes (--build forces a rebuild so Dockerfile changes are reflected)
+docker compose -f docker-compose.dev.yml up --build -d
+
+# View logs
+docker compose -f docker-compose.dev.yml logs -f api
+
+# Stop
+docker compose -f docker-compose.dev.yml down
+```
+
+### Production (API + PostgreSQL, no bind mount, port 80)
+
+```shell
+# Start API and PostgreSQL (ensure .env has production values)
+docker compose -f docker-compose.prod.yml up -d
+
+# Rebuild after Dockerfile changes (--build forces a rebuild so Dockerfile changes are reflected)
+docker compose -f docker-compose.prod.yml up --build -d
+
+# Stop
+docker compose -f docker-compose.prod.yml down
+```
+
+### Compose Logs (all services)
+
+```shell
+# View logs from all services (use -f to follow)
+docker compose -f docker-compose.dev.yml logs
+docker compose -f docker-compose.dev.yml logs -f
+```
+
+### Docker Hub (push image)
+
+```shell
+# Build the image first (if not already built)
+docker compose -f docker-compose.dev.yml build
+
+# Log in to Docker Hub
+docker login
+
+# Tag the locally built image (replace username with your Docker Hub username)
+# Image name is typically project_service, e.g. kodekloud-fastapi_api
+docker image tag kodekloud-fastapi_api username/fastapi
+
+# Verify the tag
+docker image ls
+
+# Push the image to Docker Hub
+docker push username/fastapi
+```
+
+**Note:** For production, `docker-compose.prod.yml` can reference `image: username/fastapi` instead of `build: .` to use the pushed image.
 
 ## Alembic
 
