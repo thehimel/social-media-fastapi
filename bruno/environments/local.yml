@@ -4,3 +4,5 @@ variables:
     value: http://127.0.0.1:8000
   - name: posts
     value: "{{host}}/api/posts"
+  - name: users
+    value: "{{host}}/api/users"
