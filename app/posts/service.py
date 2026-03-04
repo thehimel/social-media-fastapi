@@ -14,12 +14,13 @@ def get_post(db: Session, post_id: int) -> models.Post | None:
     return post
 
 
-def create_post(db: Session, payload: schemas.PostCreate) -> models.Post:
+def create_post(db: Session, payload: schemas.PostCreate, owner_id: int) -> models.Post:
     post = models.Post(
         title=payload.title,
         content=payload.content,
         published=payload.published,
         rating=payload.rating,
+        owner_id=owner_id,
     )
     db.add(post)  # Stage for insert so commit can persist it.
     db.commit()  # Persist so the post is stored and visible.

@@ -17,6 +17,7 @@ class PostCreate(PostBase):
 
 class Post(PostBase):
     id: int
+    owner_id: int
     created_at: datetime
 
     # Allow Pydantic to read from ORM attributes (e.g. post.id, post.title) so we can return SQLAlchemy model

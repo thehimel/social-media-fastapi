@@ -42,7 +42,7 @@ def create_post(
     db: Session = Depends(get_db),
     current_user: user_models.User = Depends(get_current_user),
 ):
-    return service_create_post(db, payload)
+    return service_create_post(db, payload, owner_id=current_user.id)
 
 
 @router.put("/{post_id}", response_model=schemas.Post)
