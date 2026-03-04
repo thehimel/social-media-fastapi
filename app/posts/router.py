@@ -1,6 +1,8 @@
 from fastapi import APIRouter, Depends, HTTPException, status, Response
 from sqlalchemy.orm import Session
 
+from app.auth.dependencies import get_current_user
+from app.auth.schemas import TokenData
 from app.database import get_db
 from app.posts import schemas
 from app.posts.service import create_post as service_create_post
@@ -31,8 +33,10 @@ def get_post(
 @router.post("", response_model=schemas.Post, status_code=status.HTTP_201_CREATED)
 @router.post("/", response_model=schemas.Post, status_code=status.HTTP_201_CREATED)
 def create_post(
-    payload: schemas.PostCreate, db: Session = Depends(get_db)
-):  # Depends() injects a fresh session per request and closes it after.
+    payload: schemas.PostCreate,
+    db: Session = Depends(get_db),
+    current_user: TokenData = Depends(get_current_user),
+):
     return service_create_post(db, payload)
 
 
